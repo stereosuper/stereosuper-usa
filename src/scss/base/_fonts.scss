@@ -1,21 +1,32 @@
-// @font-face{
-//     font-family: 'font';
-//     src: url('../fonts/font.woff2') format('woff2'),
-//          url('../fonts/font.woff') format('woff'),
-//          url('../fonts/font.ttf') format('truetype');
-//     font-weight: 400;
-//     font-style: normal;
-// }
-
-// [class^='icon-'], [class*=' icon-']{
-//     @include font-icon;
-// }
-
-// $icons: (
-//     icon: '\e900'
-// );
-// @each $name, $icon in $icons{
-//     .icon-#{$name}:before {
-//         content: $icon;
-//     }
-// }
+@font-face{
+    font-family: 'elenabold';
+    src: url('../fonts/ElenaWebBasicBold.woff2') format('woff2'),
+         url('../fonts/ElenaWebBasicBold.woff') format('woff'),
+         url('../fonts/ElenaWebBasicBold.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'elenabolditalic';
+    src: url('../fonts/ElenaWebBasicBoldItalic.woff2') format('woff2'),
+         url('../fonts/ElenaWebBasicBoldItalic.woff') format('woff'),
+         url('../fonts/ElenaWebBasicBoldItalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'elena';
+    src: url('../fonts/ElenaWebBasicRegular.woff2') format('woff2'),
+         url('../fonts/ElenaWebBasicRegular.woff') format('woff'),
+         url('../fonts/ElenaWebBasicRegular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'elenaitalic';
+    src: url('../fonts/ElenaWebBasicRegularItalic.woff2') format('woff2'),
+         url('../fonts/ElenaWebBasicRegularItalic.woff') format('woff'),
+         url('../fonts/ElenaWebBasicRegularItalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
