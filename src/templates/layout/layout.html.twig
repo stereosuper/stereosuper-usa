@@ -9,6 +9,7 @@
 
         {% block stylesheets %}
             <link rel='stylesheet' href='css/main.css'>
+            <link rel='stylesheet' href='https://cloud.typography.com/719316/609682/css/fonts.css'>
         {% endblock stylesheets %}
 
         {% block javascript_top %}
@@ -17,7 +18,67 @@
     </head>
 
     <body {% block body_attr %}{% endblock %}>
-        <header role='banner'>
+        <header id='header' role='banner'>
+            <div class='container'>
+                <div class='header-left'>
+                    <div class='wrapper-logo'>
+                        <a href='./' id='logo' title="Retour à l'accueil">
+                            <svg class='icon stereo'><use xlink:href='#icon-stereo'/></svg><svg class='icon super'><use xlink:href='#icon-super'/></svg><span><strong>Stéréo</strong>super</span>
+                        </a>
+                    </div><ul class='menu-contact'>
+                        <li>
+                            <a href='mailto:bisou@stereosuper.fr' title='Envoyez nous un email' class='link-arrow'>
+                                <svg class='m-icon icon'><use xlink:href='#icon-mail'/></svg>
+                                <span>bisou@stereosuper.fr</span>
+                                <svg class='icon i1'><use xlink:href='#icon-big-arrow'/></svg>
+                                <svg class='icon i2'><use xlink:href='#icon-big-arrow'/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href='tel:+33951248536' title='Passez nous un coup de fil'>
+                                <svg class='m-icon icon'><use xlink:href='#icon-phone'/></svg>
+                                <span>+33 9 51 24 85 36</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div><nav class='header-right' role='navigation'>
+                    <ul class='menu-header'>
+                        <li>
+                            <a href='a-propos.html' title='En savoir plus sur nous'><span>À propos</span></a>
+                        </li>
+                        <li>
+                            <a href='contact.html' title='Nos informations de contact'>
+                                <svg class='m-icon icon'><use xlink:href='#icon-map'/></svg>
+                                <span>Nous trouver</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class='lang-social'>
+                        <div class='lang'>
+                            <span class='non-active'>
+                                fr
+                            </span><span class='slash'>
+                                /
+                            </span><a href='{{ url_en }}' class='no-barba' title='English version'>
+                                en
+                            </a>
+                        </div>
+
+                        <ul class='social'>
+                            <li>
+                                <a href='https://twitter.com/stereosuper' target='_blank' title='Suivez-nous sur Twitter'>
+                                    <svg class='icon twitter'><use xlink:href='#icon-twitter'/></svg>
+                                </a>
+                            </li><li>
+                                <a href='https://www.facebook.com/stereosuper' target='_blank' title='Suivez-nous sur Facebook'>
+                                    <svg class='icon facebook'><use xlink:href='#icon-facebook'/></svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </header>
 
         <main role='main'>
@@ -30,9 +91,7 @@
         {% block icons %}
             <svg style='position:absolute;width:0;height:0;overflow:hidden'>
                 <defs>
-                    <symbol id='icon' viewBox='0 0 0 0'>
-                        <title>Icon</title>
-                    </symbol>
+                    
                 </defs>
             </svg>
         {% endblock icons %}

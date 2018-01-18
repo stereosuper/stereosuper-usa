@@ -4,6 +4,9 @@
 // Colors
 $white: rgb(255, 255, 255);
 $black: rgb(0, 0, 0);
+$grey: rgb(77, 77, 77);
+$blue: rgb(0, 155, 227);
+$blue-flash: rgb(0, 174, 255);
 
 
 // Transitions
@@ -11,7 +14,11 @@ $transition: 0.3s ease-in-out;
 
 
 // Fonts
-// $font: 'font', sans-serif;
+$elena: 'elena', sans-serif;
+$elenaitalic: 'elenaitalic', $elena;
+$elenabold: 'elenabold', $elena;
+$elenabolditalic: 'elenabolditalic', $elenaitalic;
+$gotham: 'Gotham SSm A', 'Gotham SSm B', $elena;
 
 
 // Mediaqueries
@@ -25,6 +32,4 @@ $phone-small: '400px';
 
 
 // Grid
-$col: 100/12*1%;
-
-$gutter: 10px;
+$gutter: 30px;
