@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='fr-FR' class='no-js'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='description' content=''>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+        <title></title>
+
+        {% block stylesheets %}
+            <link rel='stylesheet' href='css/main.css'>
+        {% endblock stylesheets %}
+
+        {% block javascript_top %}
+            <script>document.getElementsByTagName('html')[0].className = 'js';</script>
+        {% endblock %}
+    </head>
+
+    <body {% block body_attr %}{% endblock %}>
+        <header role='banner'>
+        </header>
+
+        <main role='main'>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer role='banner'>
+        </footer>
+
+        {% block icons %}
+            <svg style='position:absolute;width:0;height:0;overflow:hidden'>
+                <defs>
+                    <symbol id='icon' viewBox='0 0 0 0'>
+                        <title>Icon</title>
+                    </symbol>
+                </defs>
+            </svg>
+        {% endblock icons %}
+
+        {% block javascript_bottom %}
+            <script src='js/main.js' defer></script>
+        {% endblock %}
+    </body>
+</html>
