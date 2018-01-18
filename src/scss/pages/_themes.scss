@@ -1,0 +1,9 @@
+@each $theme, $map in $themes{
+    $primary: map-get($map, primary);
+    $primary-dark: map-get($map, primary-dark);
+    $secondary: map-get($map, secondary);
+
+    .#{$theme}{
+        background: $primary;
+    }
+}
