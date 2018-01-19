@@ -24,5 +24,20 @@
                 }
             }
         }
+        .reference{
+            &:nth-child(odd){
+                h3, .icon{
+                    color: $primary-medium;
+                }
+            }
+            &:nth-child(even){
+                > div {
+                    background-color: $primary-medium;
+                }
+                h3, .icon{
+                    color: $white;
+                }
+            }
+        }
     }
 }

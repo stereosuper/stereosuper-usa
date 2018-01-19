@@ -6,14 +6,30 @@
     
 }
 .reference{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 25px;
+    position: relative;
     text-align: center;
     width: 25%;
-    background-color: $white;
+    > div {
+        background-color: $white;
+        padding: 40px 25px;
+    }
+    &:nth-child(odd){
+        transform: translate3d(0, 10px, 0);
+    }
+    &:nth-child(even){
+        transform: translate3d(0, -10px, 0);
+    }
+    &:first-child{
+        z-index: 1;
+        > div {
+            transform: rotate(-1deg);
+        }
+    }
+    &:last-child{
+        > div {
+            transform: rotate(1deg);
+        }
+    }
     .icon{
         width: 30%;
         max-width: 70px;
