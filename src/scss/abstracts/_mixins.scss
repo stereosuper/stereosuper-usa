@@ -137,3 +137,15 @@
     font-family: $elenabolditalic;
     font-size: $size;
 }
+@mixin carrosserie($size){
+    font-family: $carrosserie;
+    font-size: $size;
+}
+@mixin carrosserie-medium($size){
+    font-family: $carrosseriemedium;
+    font-size: $size;
+}
+@mixin carrosserie-bold($size){
+    font-family: $carrosseriebold;
+    font-size: $size;
+}

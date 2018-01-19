@@ -1,5 +1,6 @@
 @each $theme, $map in $themes{
     $primary: map-get($map, primary);
+    $primary-medium: map-get($map, primary-medium);
     $primary-dark: map-get($map, primary-dark);
     $secondary: map-get($map, secondary);
 
@@ -8,6 +9,19 @@
         .wrapper-baseline{
             .rect-visu{
                 background: $secondary;
+            }
+        }
+        .hashtag{
+            color: $primary-dark;
+        }
+        .lang{
+            a, .slash{
+                color: $primary-dark;
+            }
+            a{
+                &:hover, &:focus{
+                    color: $white;
+                }
             }
         }
     }

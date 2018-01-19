@@ -1,0 +1,30 @@
+.lateral{
+    position: fixed;
+    top: 50%;
+    text-transform: uppercase;
+    font-family: $carrosserie;
+    font-size: 1.4rem;
+    &.left{
+        left: 20px;
+        transform: translate3d(-50%, -50%, 0) rotate(-90deg);
+    }
+    &.right{
+        right: 20px;
+        transform: translate3d(50%, -50%, 0) rotate(90deg);
+    }
+}
+.hashtag{
+    text-decoration: none;
+    > span{
+        color: $white;
+    }
+}
+.lang{
+    letter-spacing: 2px;
+    .non-active{
+        color: $white;
+    }
+    a{
+        text-decoration: none;
+    }
+}
