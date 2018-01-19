@@ -22,22 +22,25 @@ body{
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: $white;
+    color: $grey-dark;
     min-height: 100vh;
     background: #fff;
 }
 
 h1, h2, h3, h4, h5, h6{
     @include gotham-bold(1rem);
-    color: $blue;
 }
 
 h1{
-    padding: 0.12em 0 0;
-    margin: 0 -0.08em 0.25em;
-    font-size: 10.5vw;
+    margin: 0 0 0.25em;
+    padding: 0;
+    font-size: 7vw;
     letter-spacing: -0.08em;
     line-height: 0.85;
+    color: $grey;
+    > span{
+        color: $white;
+    }
 }
 
 h2{
@@ -243,4 +246,8 @@ a{
     stroke-width: 0;
     stroke: currentColor;
     fill: currentColor;
+}
+
+.color-white{
+    color: $white;
 }
