@@ -3,7 +3,7 @@
     align-items: center;
     min-height: 100vh;
     padding: 170px 0;
-    .container{
+    .container-baseline{
         display: flex;
         align-items: center;
         > div{
@@ -14,10 +14,9 @@
         position: relative;
         img{
             position: relative;
-            width: calc(100% + 30px);
+            width: calc(100% + 15px);
             max-width: none;
             height: auto;
-            margin: 0 0 0 -15px;
         }
     }
     .txt{

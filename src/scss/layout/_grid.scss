@@ -8,33 +8,9 @@
     max-width: 1300px;
 }
 .container-small{
-    width: 75%;
+    width: percentage(10/12);
 }
 
 .main{
     min-height: 100vh;
-}
-
-@media (max-width: 1060px){
-    .container-small{
-        width: 100%;
-    }
-}
-
-@media (max-width: 960px){
-    .main{
-        min-height: calc(100vh - 156px); // footer height
-    }
-}
-
-@media (max-width: 870px){
-    .container-small{
-        padding: 0;
-    }
-}
-
-@media (max-width: 780px){
-    .main{
-        padding-bottom: 120px;
-    }
 }
