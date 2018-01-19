@@ -149,10 +149,11 @@ hr{
 /******* LIENS / BOUTONS *******/
 
 a{
-    color: inherit;
+    font-family: $elenabold;
+    color: $white;
     transition: $transition;
     &:focus, &:hover{
-        color: $blue;
+        color: rgba($white, 0.8);
     }
     &:focus{
         outline: 0;

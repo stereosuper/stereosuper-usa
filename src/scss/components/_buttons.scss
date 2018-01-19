@@ -1,1 +1,52 @@
 /* Buttons */
+.link-arrow{
+    display: inline-block;
+    position: relative;
+    font-family: $gotham;
+    font-weight: 700;
+    line-height: 0.9;
+    text-decoration: none;
+    color: $grey;
+    > span{
+        display: inline-block;
+        transition: transform .25s ease-in-out;
+        span{
+            color: $white;
+        }
+    }
+	.icon{
+        width: 24px;
+        height: 11px;
+        margin: -2px 0 0 9px;
+        font-size: 1.8rem;
+	}
+    .i1{
+        transition: transform .25s ease-in-out, opacity .35s ease-in-out;
+    }
+    .i2{
+        position: absolute;
+        top: -1px;
+        left: -10px;
+        bottom: 0;
+        margin: auto;
+        transform: translate3d(-100%, 0, 0);
+        opacity: 0;
+        transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+    }
+    &:hover, &:focus{
+        opacity: 0.8;
+        .i1{
+            transform: translate3d(100%, 0, 0);
+            opacity: 0;
+        }
+        .i2{
+            transform: translate3d(0, 0, 0);
+            transition-delay: .15s;
+            opacity: 1;
+        }
+        span{
+            transform: translate3d(19px, 0, 0);
+            transition-delay: .1s;
+        }
+    }
+}

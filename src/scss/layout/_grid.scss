@@ -1,6 +1,6 @@
 /* Grid */
 
-.container, .container-small{
+.container, .container-small, .container-tiny{
     padding: 0 $gutter;
     margin: 0 auto;
 }
@@ -9,6 +9,9 @@
 }
 .container-small{
     width: percentage(10/12);
+}
+.container-tiny{
+    width: percentage(8/12);
 }
 
 .main{

@@ -1,0 +1,33 @@
+.contact{
+    margin: 100px 0;
+}
+.container-contact{
+    display: flex;
+    align-items: center;
+    .visu{
+        position: relative;
+        width: percentage(3/8);
+        img{
+            position: relative;
+            width: calc(100% + 15px);
+            max-width: none;
+            height: auto;
+        }
+    }
+    .txt{
+        position: relative;
+        width: percentage(5/8);
+    }
+    .rect-visu{
+        position: absolute;
+        top: 20px;
+        right: -90px;
+        bottom: 10px;
+        left: -50px;
+        transform: rotate(3deg);
+    }
+    .link-arrow{
+        font-size: 11rem;
+    }
+}
+

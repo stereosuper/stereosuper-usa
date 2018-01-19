@@ -6,10 +6,8 @@
 
     .#{$theme}{
         background: $primary;
-        .wrapper-baseline{
-            .rect-visu{
-                background: $secondary;
-            }
+        .rect-visu{
+            background: $secondary;
         }
         .hashtag{
             color: $primary-dark;
