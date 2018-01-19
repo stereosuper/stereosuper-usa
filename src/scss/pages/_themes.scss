@@ -5,5 +5,10 @@
 
     .#{$theme}{
         background: $primary;
+        .wrapper-baseline{
+            .rect-visu{
+                background: $secondary;
+            }
+        }
     }
 }

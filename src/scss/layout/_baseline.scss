@@ -2,5 +2,33 @@
     display: flex;
     align-items: center;
     min-height: 100vh;
-    padding: 170px 0 0;
+    padding: 170px 0;
+    .container{
+        display: flex;
+        align-items: center;
+        > div{
+            width: 50%;
+        }
+    }
+    .visu{
+        position: relative;
+        img{
+            position: relative;
+            width: calc(100% + 30px);
+            max-width: none;
+            height: auto;
+            margin: 0 0 0 -15px;
+        }
+    }
+    .txt{
+        position: relative;
+    }
+    .rect-visu{
+        position: absolute;
+        top: -50px;
+        right: -100px;
+        bottom: -50px;
+        left: -100px;
+        transform: rotate(-2deg);
+    }
 }
