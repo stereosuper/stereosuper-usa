@@ -1,16 +1,20 @@
 .lateral{
     position: fixed;
-    top: 50%;
+    bottom: 0;
+    width: 100vh;
     text-transform: uppercase;
     font-family: $carrosserie;
     font-size: 1.4rem;
+    text-align: center;
     &.left{
-        left: 20px;
-        transform: translate3d(-50%, -50%, 0) rotate(-90deg);
+        left: 25px;
+        transform-origin: 0 50%;
+        transform: rotate(-90deg);
     }
     &.right{
-        right: 20px;
-        transform: translate3d(50%, -50%, 0) rotate(90deg);
+        right: 25px;
+        transform-origin: 100% 50%;
+        transform: rotate(90deg);
     }
 }
 .hashtag{
