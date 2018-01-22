@@ -13,6 +13,12 @@
         }
         .hashtag{
             color: $primary-dark;
+            &:hover, &:focus{
+                color: $white;
+                > span{
+                    color: $primary-dark;
+                }
+            }
         }
         .lang{
             a, .slash{
