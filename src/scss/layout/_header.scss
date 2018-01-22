@@ -60,3 +60,12 @@
 		opacity: 0.7;
 	}
 }
+
+.header-right{
+	.icon{
+		&.icon-frog{
+			width: 28px;
+			height: 20px;
+		}
+	}
+}

@@ -45,5 +45,12 @@
                 }
             }
         }
+        .header-right{
+            .active{
+                .icon{
+                    fill: $primary-dark;
+                }
+            }
+        }
     }
 }

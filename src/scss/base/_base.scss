@@ -38,6 +38,7 @@ h1{
     letter-spacing: -0.08em;
     line-height: 0.85;
     color: $grey;
+    text-rendering: optimizeLegibility;
     > span{
         color: $white;
     }
