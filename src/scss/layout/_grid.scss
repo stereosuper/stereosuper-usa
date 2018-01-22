@@ -1,11 +1,11 @@
 /* Grid */
 
 .container, .container-small, .container-tiny{
-    padding: 0 $gutter;
     margin: 0 auto;
 }
 .container{
     max-width: 1300px;
+    padding: 0 $gutter;
 }
 .container-small{
     width: percentage(10/12);
