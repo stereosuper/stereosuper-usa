@@ -3,6 +3,8 @@
     $primary-medium: map-get($map, primary-medium);
     $primary-dark: map-get($map, primary-dark);
     $secondary: map-get($map, secondary);
+    $secondary-medium: map-get($map, secondary-medium);
+    $secondary-dark: map-get($map, secondary-dark);
 
     .#{$theme}{
         background: $primary;
@@ -21,6 +23,12 @@
                     color: $white;
                 }
             }
+        }
+        .cover-title{
+            color: $primary;
+        }
+        .cover-text{
+            color: $secondary-dark;
         }
         .reference{
             &:nth-child(odd){

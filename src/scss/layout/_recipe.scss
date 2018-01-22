@@ -8,15 +8,33 @@
 }
 
 
-.recipe-title{
+.cover-title{
+    position: relative;
     margin: 25px 0 0;
     font-family: $carrosseriebold;
     display: block;
     font-size: 12.7rem;
-    word-break: break-all;
-    letter-spacing: 8px;
     line-height: 1;
     width: 150px;
+    .icon{
+        width: 60px;
+        height: 0.4em;
+        margin-left: -30px;
+    }
+    > span{
+        &:first-child{
+            letter-spacing: 3.9px;
+        }
+        &:nth-child(2){
+            letter-spacing: 7.9px;
+        }
+        &:nth-child(3){
+            letter-spacing: 15.7px;
+        }
+        &:nth-child(4){
+            letter-spacing: 8px;
+        }
+    }
 }
 
 .cover{
