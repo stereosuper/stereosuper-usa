@@ -58,5 +58,10 @@
                 }
             }
         }
+        .elem-anim{
+            &.frog-eye{
+                background: $primary;
+            }
+        }
     }
 }
