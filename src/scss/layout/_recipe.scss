@@ -96,6 +96,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 0 50px;
+    color: #466e5c;
     font-family: $carrosseriebold;
     h3{
         display: flex;
@@ -116,7 +117,7 @@
             display: block;
             height: 2px;
             width: 30px;
-            background: black;
+            background: currentColor;
             left: -50px;
         }
         &:first-child{
@@ -147,4 +148,51 @@
 .ingredient-wrapper-img{
     width: 100%;
     height: 150px;
+}
+
+.mode-op{
+    width: 830px;
+    z-index: 5;
+    h3{
+        text-align: center;
+        font-family: $carrosseriebold;
+        font-size: 7.7rem;
+        letter-spacing: 12px;
+        margin: -25px 0 0;
+    }
+}
+
+.meo{
+    display: flex;
+    padding: 50px 95px;
+    > div {
+        margin: 0 15px;
+    }
+    p{
+        margin: 0;
+    }
+}
+
+.meo-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0;
+    padding: 10px 0 0;
+    color: white;
+    font-family: $carrosseriemedium;
+    font-size: 2rem;
+    font-weight: normal;
+    .icon-world{
+        height: 19px;
+        width: 26px;
+    }
+    .icon-pingpong{
+        height: 26px;
+        width: 35px;
+    }
+    .icon-monkey{
+        height: 26px;
+        width: 26px;
+    }
 }

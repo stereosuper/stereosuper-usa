@@ -20,6 +20,12 @@
                 }
             }
         }
+        .ingredient h4{
+            color: $primary;
+        }
+        .mode-op{
+            background-color: $primary-medium;
+        }
         .lang{
             a, .slash{
                 color: $primary-dark;
