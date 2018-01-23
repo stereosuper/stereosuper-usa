@@ -12,10 +12,12 @@ $(function(){
     window.requestAnimFrame = require('./requestAnimFrame.js');
     var throttle = require('./throttle.js');
     var noTransition = require('./noTransition.js');
+    var animFrogEye = require('./animFrogEye.js');
 
     var body = $('body');
     // window.outerWidth returns the window width including the scroll, but it's not working with $(window).outerWidth
     var windowWidth = window.outerWidth, windowHeight = $(window).height();
+    var frogEye = $('#frogEye'), frogPupil = $('#frogPupil');
 
 
     function resizeHandler(){
@@ -26,6 +28,8 @@ $(function(){
     function loadHandler(){
 
     }
+
+    animFrogEye(frogEye, frogPupil);
 
 
     // isMobile.any ? body.addClass('is-mobile') : body.addClass('is-desktop');

@@ -49,15 +49,28 @@
         margin-top: 5.7%;
         margin-left: 29.1%;
         border-radius: 50%;
+        overflow: hidden;
     }
+}
+.wrapper-frog-pupil{
+    position: absolute;
+    top: 0;
+    right: 20%;
+    bottom: 0;
+    left: 20%;
+    
+    transform: rotate(28deg);
 }
 .frog-pupil{
     position: absolute;
-    top: 4%;
-    bottom: 5%;
-    left: 35%;
-    width: 25%;
+    // top: 4%;
+    // bottom: 5%;
+    // left: 35%;
+    width: 40%;
+    height: 100%;
     border-radius: 50%;
     background: #515052;
-    transform: rotate(28deg);
+    //transform: rotate(28deg);
+    transform: translate3d(130%, 0, 0);
+    transition: transform 0.05s ease-out;
 }
