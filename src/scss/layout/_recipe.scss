@@ -153,6 +153,7 @@
 .mode-op{
     width: 830px;
     padding: 50px 0 20px;
+    transform: rotate(1deg);
     z-index: 2;
     h3{
         position: relative;
@@ -210,5 +211,90 @@
     .icon-monkey{
         height: 26px;
         width: 24px;
+    }
+}
+
+.voila{
+    width: 880px;
+    transform: rotate(-1deg);
+    p{
+        margin: 0;
+        color: #2c2c2c;
+    }
+}
+
+.big-voila{
+    font-family: $carrosseriebold;
+    font-size: 9.6rem;
+    color: #505052;
+    text-align: center;
+    line-height: 1.1;
+    letter-spacing: 7.4px;
+}
+
+.honey, .ready{
+    position: absolute;
+    font-size: 1.5rem;
+    top: 33%;
+    left: 27%;
+    font-family: $carrosserie;
+    letter-spacing: 1.4px;
+    color: $white;
+}
+
+.ready{
+    right: 22%;
+    left: auto;
+}
+
+.et-voila{
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.voila-body{
+    display: flex;
+    h4{
+        font-family: $carrosserie;
+        font-size: 2.3rem;
+        letter-spacing: 2.2px;
+        margin: 0;
+        color: $white;
+        line-height: 1;
+        font-weight: normal;
+    }
+    .responses{
+        padding: 100px 0;
+    }
+    .response{
+        position: relative;
+        padding: 0 0 0 80px;
+        &:before{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 7px;
+            left: 0px;
+            height: 1px;
+            width: 60px;
+            background-color: $white;
+        }
+        &:first-child{
+            margin: 0 0 70px;
+        }
+    }
+}
+
+.voila-footer{
+    padding: 45px 80px;
+    font-size: 1.4rem;
+    line-height: 1.7;
+    a{
+        font-family: $elena;
+        color: #2c2c2c;
+        text-decoration-skip: ink;
     }
 }
