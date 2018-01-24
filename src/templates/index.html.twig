@@ -37,96 +37,117 @@
         </div>
     </div>
 
-    <div class='container'>
-        <div class='container-small recipe'>
-            <div class='sheet cover'>
-                <p class='cover-text'>La formule<br> des frenchies<br> de Stéréosuper<br> pour atteindre<br> vos objectifs</p>
-                <span class='cover-title' aria-label='Recette' ><span aria-hidden='true'>Re</span><span aria-hidden='true'>ce</span><span aria-hidden='true'>tt</span><span aria-hidden='true'>e<!----><svg class='icon icon-arrow-bold'><use xlink:href='#icon-arrow-bold'></use></svg></span>  
-            </div>
-            <div class='sheet wrapper-ingredients'>
-                <div class='papercut'></div>
-                <div class='ingredients'>
-                    <div class='ingredients-title'>
-                        <span class='town'>Nantes</span>
-                        <h3>Ingrédients</h3>
-                        <span class='town'>New York</span>
-                    </div>
-                    <div class="ingredient">
-                        <h4>Un grand chef designer</h4>
-                        <p>
-                            Créatif, disponible, <i>efficient</i>. Classe, comme tout frenchie.<br>Vadrouille entre France et USA. 10+ ans d'experience.
-                        </p>
-                    </div>
-                    <div class="ingredient-wrapper-img">
-                        <img src='/img/recipe.png' >
-                    </div>
-                    <div class="ingredient">
-                        <h4>Une pincée de designers frais</h4>
-                        <p>
-                            <i>Fluent</i> en américain.<br>Avec de l’expérience et plein d’idées. 
-                        </p>
-                    </div>
-                    <div class="ingredient">
-                        <h4>Une grappe de front-end developers</h4>
-                        <p>
-                            Très créatifs et pros. En France, sans aucun <i>jetlag</i>.<br>Travaillent pendant que vous dormez. 
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="sheet mode-op">
-                <div class='meo'>
-                    <div>
-                        <h4 class="meo-title">Remote 
-                            <svg class="icon icon-world">
-                                <use xlink:href='#icon-world'></use>
-                            </svg>
-                        </h4>
-                        <p>Une équipe habituée à travailler à distance. Aux projets internationaux, à leurs contraintes : horaires et organisation.</p>
-                    </div>
-                    <div>
-                        <h4 class="meo-title">Co-création
-                            <svg class="icon icon-pingpong">
-                                <use xlink:href='#icon-pingpong'></use>
-                            </svg>
-                        </h4>
-                        <p>Un ping-pong permanent avec vous. Pour profiter de la créativité de tous. On veut vous faire réagir dès les premiers croquis !</p>
-                    </div>
-                    <div>
-                        <h4 class="meo-title">Agilité
-                            <svg class="icon icon-monkey">
-                                <use xlink:href='#icon-monkey'></use>
-                            </svg>
-                        </h4>
-                        <p>Un planning sur-mesure, découpé et facturé en sprints courts. Donc plus de souplesse. plus de visibilité. Et moins de contraintes.</p>
-                    </div>
-                </div>
-                <h3>Mode opératoire</h3>
-            </div>
-            <div class="sheet voila">
-                <div class="voila-body">
-                    <div class="responses">
-                        <div class="response">
-                            <h4>Efficacité</h4>
-                            <p>Une réponse au service <br>de votre cible et de vos objectifs.</p>
-                        </div>
-                        <div class="response">
-                            <h4>Créativité</h4>
-                            <p>Une réponse au différentiante, <br>pleine de personnalité.</p>
-                        </div>
-                    </div>
-                    <div class="et-voila">
-                        <span class='big-voila'>Et <br>voilà</span>
-                        <span class="honey">Chérie,</span>
-                        <span class="ready">c'est prêt !</span>
-                    </div>
-                </div>
-                <div class="voila-footer">
-                    <p>Toutes nos recettes sont faites maison avec des produits <i>organics</i> et en circuits courts. Aucun animal n’a souffert. </p>
-                    <a href="https://www.youtube.com/watch?v=thJxGSuPjNo" title='Recette cuisses de grenouilles' target='_blank'>Découvrir la recette des cuisses de grenouilles en persillade de Maïté</a>
+    <div class="recipe" id='recipe'>
+
+        <div class="container container-sheet" data-sheet='1'>
+            <div class="container-small">
+                <div class='sheet cover'>
+                    <p class='cover-text'>La formule<br> des frenchies<br> de Stéréosuper<br> pour atteindre<br> vos objectifs</p>
+                    <span class='cover-title' aria-label='Recette' ><span aria-hidden='true'>Re</span><span aria-hidden='true'>ce</span><span aria-hidden='true'>tt</span><span aria-hidden='true'>e<!----><svg class='icon icon-arrow-bold'><use xlink:href='#icon-arrow-bold'></use></svg></span>  
                 </div>
             </div>
         </div>
+
+        <div class="container container-sheet" data-sheet='2'>
+            <div class="container-small">
+                <div class='sheet wrapper-ingredients'>
+                    <div class='papercut'></div>
+                    <div class='ingredients'>
+                        <div class='ingredients-title'>
+                            <span class='town'>Nantes</span>
+                            <h3>Ingrédients</h3>
+                            <span class='town'>New York</span>
+                        </div>
+                        <div class="ingredient">
+                            <h4>Un grand chef designer</h4>
+                            <p>
+                                Créatif, disponible, <i>efficient</i>. Classe, comme tout frenchie.<br>Vadrouille entre France et USA. 10+ ans d'experience.
+                            </p>
+                        </div>
+                        <div class="ingredient-wrapper-img">
+                            <img src='/img/recipe.png' >
+                        </div>
+                        <div class="ingredient">
+                            <h4>Une pincée de designers frais</h4>
+                            <p>
+                                <i>Fluent</i> en américain.<br>Avec de l’expérience et plein d’idées. 
+                            </p>
+                        </div>
+                        <div class="ingredient">
+                            <h4>Une grappe de front-end developers</h4>
+                            <p>
+                                Très créatifs et pros. En France, sans aucun <i>jetlag</i>.<br>Travaillent pendant que vous dormez. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container container-sheet" data-sheet='3'>
+            <div class="container-small">
+                <div class="sheet mode-op">
+                    <div class='meo'>
+                        <div>
+                            <h4 class="meo-title">Remote 
+                                <svg class="icon icon-world">
+                                    <use xlink:href='#icon-world'></use>
+                                </svg>
+                            </h4>
+                            <p>Une équipe habituée à travailler à distance. Aux projets internationaux, à leurs contraintes : horaires et organisation.</p>
+                        </div>
+                        <div>
+                            <h4 class="meo-title">Co-création
+                                <svg class="icon icon-pingpong">
+                                    <use xlink:href='#icon-pingpong'></use>
+                                </svg>
+                            </h4>
+                            <p>Un ping-pong permanent avec vous. Pour profiter de la créativité de tous. On veut vous faire réagir dès les premiers croquis !</p>
+                        </div>
+                        <div>
+                            <h4 class="meo-title">Agilité
+                                <svg class="icon icon-monkey">
+                                    <use xlink:href='#icon-monkey'></use>
+                                </svg>
+                            </h4>
+                            <p>Un planning sur-mesure, découpé et facturé en sprints courts. Donc plus de souplesse. plus de visibilité. Et moins de contraintes.</p>
+                        </div>
+                    </div>
+                    <h3>Mode opératoire</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container container-sheet" data-sheet='4'>
+            <div class="container-small">
+                <div class="sheet voila">
+                    <div class="voila-body">
+                        <div class="responses">
+                            <div class="response">
+                                <h4>Efficacité</h4>
+                                <p>Une réponse au service <br>de votre cible et de vos objectifs.</p>
+                            </div>
+                            <div class="response">
+                                <h4>Créativité</h4>
+                                <p>Une réponse au différentiante, <br>pleine de personnalité.</p>
+                            </div>
+                        </div>
+                        <div class="et-voila">
+                            <span class='big-voila'>Et <br>voilà</span>
+                            <span class="honey">Chérie,</span>
+                            <span class="ready">c'est prêt !</span>
+                        </div>
+                    </div>
+                    <div class="voila-footer">
+                        <p>Toutes nos recettes sont faites maison avec des produits <i>organics</i> et en circuits courts. Aucun animal n’a souffert. </p>
+                        <a href="https://www.youtube.com/watch?v=thJxGSuPjNo" title='Recette cuisses de grenouilles' target='_blank'>Découvrir la recette des cuisses de grenouilles en persillade de Maïté</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
     </div>
 
     <div class='container refs'>

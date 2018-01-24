@@ -13,6 +13,7 @@ $(function(){
     var throttle = require('./throttle.js');
     var noTransition = require('./noTransition.js');
     var animFrogEye = require('./animFrogEye.js');
+    const recipe = require('./recipe.js');
 
     var body = $('body');
     // window.outerWidth returns the window width including the scroll, but it's not working with $(window).outerWidth
@@ -30,6 +31,7 @@ $(function(){
     }
 
     animFrogEye(frogEye, frogPupil);
+    recipe();
 
 
     // isMobile.any ? body.addClass('is-mobile') : body.addClass('is-desktop');

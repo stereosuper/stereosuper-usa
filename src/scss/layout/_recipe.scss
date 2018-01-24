@@ -1,7 +1,38 @@
 .recipe{
     position: relative;
     height: 710px;
-    margin: 0 0 170px;
+    margin: 0 auto 170px;
+}
+
+.container-sheet{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    &.stuck{
+        position: fixed;
+        pointer-events: none;
+    }
+    &.release{
+        position: absolute;
+    }
+    > .container-small{
+        position: relative;
+        height: 100%;
+    }
+    &:first-child{
+        z-index: 4;
+    }
+    &:nth-child(2){
+        z-index: 3;
+    }
+    &:nth-child(3){
+        z-index: 2;
+    }
+    &:last-child{
+        z-index: 1;
+    }
 }
 
 .sheet{
@@ -44,7 +75,6 @@
     padding: 45px;
     background: $grey;
     transform: rotate(-2deg);
-    z-index: 4;
 }
 
 .cover-text{
@@ -62,7 +92,6 @@
 .wrapper-ingredients{
     left: 80px;
     transform: rotate(-0.5deg);
-    z-index: 3;
     &:before, &:after{
         content: '';
         position: absolute;
@@ -155,12 +184,11 @@
 }
 
 .mode-op{
-    bottom: 50px;
+    top: 350px;
     right: 50px;
     width: 830px;
     padding: 50px 0 20px;
     transform: rotate(1deg);
-    z-index: 2;
     h3{
         position: relative;
         text-align: center;
