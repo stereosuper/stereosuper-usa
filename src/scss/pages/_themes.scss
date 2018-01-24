@@ -25,6 +25,9 @@
         }
         .mode-op{
             background-color: $primary-medium;
+            h3{
+                color: $secondary;
+            }
         }
         .lang{
             a, .slash{

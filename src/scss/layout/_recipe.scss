@@ -152,28 +152,34 @@
 
 .mode-op{
     width: 830px;
-    z-index: 5;
+    padding: 50px 0 20px;
+    z-index: 2;
     h3{
+        position: relative;
         text-align: center;
         font-family: $carrosseriebold;
         font-size: 7.7rem;
         letter-spacing: 12px;
-        margin: -25px 0 0;
+        margin: -35px 0 0;
+        z-index: -1;
     }
 }
 
 .meo{
     display: flex;
-    padding: 50px 95px;
+    padding: 0 95px;
     > div {
         margin: 0 15px;
     }
     p{
-        margin: 0;
+        margin: 25px 0 0;
+        font-size: 1.6rem;
+        color: #0f4542;
     }
 }
 
 .meo-title{
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -183,16 +189,26 @@
     font-family: $carrosseriemedium;
     font-size: 2rem;
     font-weight: normal;
+    &:after{
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -3px;
+        height: 2px;
+        background-color: currentColor;
+    }
     .icon-world{
-        height: 19px;
-        width: 26px;
+        height: 26px;
+        width: 24px;
     }
     .icon-pingpong{
         height: 26px;
-        width: 35px;
+        width: 32px;
     }
     .icon-monkey{
         height: 26px;
-        width: 26px;
+        width: 24px;
     }
 }
