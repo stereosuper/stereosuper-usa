@@ -17,10 +17,12 @@
             width: calc(100% + 15px);
             max-width: none;
             height: auto;
+            pointer-events: none;
         }
     }
     .txt{
         position: relative;
+        pointer-events: none;
     }
     .rect-visu{
         position: absolute;
@@ -36,6 +38,7 @@
         right: 0;
         bottom: 0;
         left: 0;
+        pointer-events: none;
     }
 }
 .elem-anim{
