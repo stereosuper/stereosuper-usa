@@ -19,7 +19,9 @@
         <div class='container'>
             <div class='container-small container-baseline'>
                 <div class='visu'>
-                    <div class='rect-visu' id='rectVisu'></div>
+                    <div class='rect-visu' id='rectVisu'>
+                        <div class='content-rect'></div>
+                    </div>
                     <div class='wrapper-anim'>
                         <span class='elem-anim frog-eye'>
                             <span class='wrapper-frog-pupil' id='frogEye'>
@@ -27,7 +29,15 @@
                             </span>
                         </span>
                     </div>
-                    <img src='../img/illus-cuisiner.png'>
+                    {# <img src='../img/illus-cuisiner.png' srcset='../img/illus-cuisiner-small.png 320w'> #}
+                    <picture>
+                        <source srcset='../img/illus-cuisiner-small.png' media='(max-width: 960px)'>
+                        <source srcset='../img/illus-cuisiner.png' media='(min-width: 961px)'>
+                        <img srcset='../img/illus-cuisiner.png' alt=''>
+                    </picture>
+                    <div class='wrapper-over-illus'>
+                        <span class='fly' id='fly'></span>
+                    </div>
                 </div>
                 <div class='txt'>
                     <h1>Seuls les frenchies savent <span>cuisiner</span></h1>
@@ -188,7 +198,9 @@
         <div class='container'>
             <div class='container-tiny container-contact'>
                 <div class='visu'>
-                    <div class='rect-visu'></div>
+                    <div class='rect-visu'>
+                        <div class='content-rect'></div>
+                    </div>
                     <img src='../img/jf-cuisiner.png'>
                 </div>
                 <div class='txt'>

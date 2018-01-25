@@ -14,7 +14,8 @@
         position: relative;
         img{
             position: relative;
-            width: calc(100% + 15px);
+            // width: calc(100% + 15px);
+            width: 100%;
             max-width: none;
             height: auto;
             pointer-events: none;
@@ -24,13 +25,22 @@
         position: relative;
         pointer-events: none;
     }
-    .rect-visu{
+    .rect-visu, .wrapper-over-illus{
         position: absolute;
         top: -50px;
         right: -100px;
         bottom: -50px;
         left: -100px;
         transform: rotate(-2deg);
+        cursor: none;
+    }
+    .wrapper-over-illus{
+        pointer-events: none;
+    }
+    .content-rect{
+        display: block;
+        width: 100%;
+        height: 100%;
     }
     .wrapper-anim{
         position: absolute;
@@ -50,10 +60,24 @@
         width: 3.2%;
         height: 3%;
         margin-top: 5.7%;
-        margin-left: 29.1%;
+        margin-left: 27%;
         border-radius: 50%;
         overflow: hidden;
     }
+}
+.fly{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 20px;
+    height: 27px;
+    margin: -13px 0 0 -20px;
+    background: url('../layoutImg/fly.gif') no-repeat 0 0;
+    background-size: 100% auto;
+    transform-origin: 50% 50%;
+    opacity: 0;
+    z-index: 2;
 }
 .wrapper-frog-pupil{
     position: absolute;
@@ -61,20 +85,61 @@
     right: 20%;
     bottom: 0;
     left: 20%;
-    
     transform: rotate(28deg);
 }
 .frog-pupil{
     position: absolute;
-    // top: 4%;
-    // bottom: 5%;
-    // left: 35%;
     width: 40%;
     height: 100%;
     border-radius: 50%;
     background: #515052;
-    //transform: rotate(28deg);
-    transform: translate3d(130%, 0, 0);
+    transform: translate3d(70%, 0, 0);
     transition: transform 0.05s ease-out;
     will-change: transform;
+}
+
+@media (max-width: $container){
+	.wrapper-baseline{
+		.rect-visu, .wrapper-over-illus{
+			top: -25px;
+            right: -50px;
+            bottom: -25px;
+            left: -50px;
+		}
+	}
+}
+@media (max-width: $desktop-small){
+    .wrapper-baseline{
+        .rect-visu, .wrapper-over-illus{
+            top: -20px;
+            right: -10px;
+            bottom: -20px;
+            left: -10px;
+        }
+        .container-baseline{
+            flex-wrap: wrap;
+            > div{
+                width: 100%;
+            }
+        }
+        .visu{
+            order: 2;
+            img{
+                display: block;
+                width: 95%;
+                margin: 0 auto;
+            }
+        }
+        .txt{
+            order: 1;
+        }
+    }
+    .elem-anim{
+        &.frog-eye{
+            width: 2.4%;
+            height: 3.5%;
+            margin-top: -1.5%;
+            margin-left: 31%;
+        }
+    }
 }
