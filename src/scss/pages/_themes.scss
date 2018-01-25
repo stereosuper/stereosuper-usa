@@ -78,5 +78,26 @@
                 background: $primary;
             }
         }
+        @media (max-width: $desktop-small){
+            .reference{
+                &:nth-child(1), &:nth-child(4){
+                    > div {
+                        background-color: $white;
+                    }
+                    h3, .icon{
+                        color: $primary-medium;
+                    }
+                }
+                &:nth-child(2), &:nth-child(3){
+                    > div {
+                        background-color: $primary-medium;
+                    }
+                    h3, .icon{
+                        color: $white;
+                    }
+                }
+            }
+        }
     }
+
 }

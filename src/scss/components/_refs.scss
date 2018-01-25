@@ -57,3 +57,47 @@
         margin: 0;
     }
 }
+
+@media (max-width: $container){
+    .reference{
+        h3{
+            font-size: 1.8rem;
+        }
+    }
+}
+@media (max-width: $desktop){
+    .reference{
+        > div{
+            padding: 30px 15px;
+        }
+    }
+}
+@media (max-width: $desktop-small){
+    .refs{
+        > ul{
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+    .reference{
+        width: 50%;
+        padding: 10px;
+    }
+}
+@media (max-width: $phone){
+    .refs{
+        > ul{
+            max-width: 280px;
+        }
+    }
+    .reference{
+        width: 100%;
+        &:nth-child(even){
+            transform: translate3d(0, 0, 0);
+        }
+        &:nth-child(odd){
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
