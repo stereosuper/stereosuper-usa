@@ -33,3 +33,22 @@
     }
 }
 
+@media (max-width: $tablet){
+    .container-contact{
+        flex-wrap: wrap;
+        .visu{
+            order: 2;
+            width: 90%;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+        .txt{
+            order: 1;
+            width: 100%;
+        }
+        .rect-visu{
+            right: -30px;
+            left: -30px;
+        }
+    }
+}

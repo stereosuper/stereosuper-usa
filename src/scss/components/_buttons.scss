@@ -51,3 +51,15 @@
         }
     }
 }
+
+@media (max-width: $desktop-small){
+    .link-arrow{
+        font-size: 7rem;
+    }
+}
+@media (max-width: $tablet){
+    .link-arrow{
+        font-size: 4.5rem;
+    }
+}
+
