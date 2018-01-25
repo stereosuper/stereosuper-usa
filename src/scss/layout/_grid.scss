@@ -13,7 +13,20 @@
 .container-tiny{
     width: percentage(8/12);
 }
-
 .main{
     min-height: 100vh;
+}
+
+@media (max-width: $desktop-small){
+    .container-small{
+        width: 100%;
+    }
+    .container-tiny{
+        width: percentage(10/12);
+    }
+}
+@media (max-width: $tablet){
+    .container-tiny{
+        width: 100%;
+    }
 }

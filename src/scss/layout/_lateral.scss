@@ -37,3 +37,19 @@
         text-decoration: none;
     }
 }
+
+@media (max-width: $container){
+    .lateral{
+        &.left{
+            left: 15px;
+        }
+        &.right{
+            right: 15px;
+        }
+    }
+}
+@media (max-width: $desktop-small){
+    .lateral{
+        font-size: 1.2rem;
+    }
+}

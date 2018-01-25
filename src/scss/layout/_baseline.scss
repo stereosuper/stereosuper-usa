@@ -110,24 +110,29 @@
 }
 @media (max-width: $desktop-small){
     .wrapper-baseline{
+        min-height: 0;
         .rect-visu, .wrapper-over-illus{
-            top: -20px;
-            right: -10px;
-            bottom: -20px;
-            left: -10px;
+            top: -30px;
+            right: -30px;
+            bottom: -30px;
+            left: -30px;
         }
         .container-baseline{
             flex-wrap: wrap;
             > div{
                 width: 100%;
+                &.visu{
+                    width: 90%;
+                }
             }
         }
         .visu{
             order: 2;
+            max-width: 600px;
+            margin: 0 auto;
             img{
                 display: block;
-                width: 95%;
-                margin: 0 auto;
+                width: 100%;
             }
         }
         .txt{
@@ -139,7 +144,17 @@
             width: 2.4%;
             height: 3.5%;
             margin-top: -1.5%;
-            margin-left: 31%;
+            margin-left: 32.3%;
+        }
+    }
+}
+@media (max-width: $tablet){
+    .wrapper-baseline{
+        .rect-visu, .wrapper-over-illus{
+            top: -20px;
+            right: -10px;
+            bottom: -20px;
+            left: -10px;
         }
     }
 }

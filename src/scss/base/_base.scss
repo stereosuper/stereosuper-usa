@@ -237,3 +237,25 @@ a{
 .color-white{
     color: $white;
 }
+
+@media (max-width: $desktop-small){
+    h1{
+        font-size: 5rem;
+    }
+}
+@media (max-width: $tablet){
+    body{
+        font-size: 1.6rem;
+    }
+    h1{
+        font-size: 4rem;
+    }
+}
+@media (max-width: $phone){
+    body{
+        font-size: 1.4rem;
+    }
+    h1{
+        font-size: 3.5rem;
+    }
+}
