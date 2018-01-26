@@ -7,7 +7,9 @@
 .container-sheet{
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000;
     height: 710px;
     width: 1300px;
     &.stuck{
