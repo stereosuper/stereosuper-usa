@@ -14,7 +14,10 @@ module.exports = function(){
     const sheet4 = $('.container-sheet[data-sheet="4"]');
 
     let maxHeight = sheet2.height();
-    const TIMING_1 = 50;
+
+    $('.container-sheet>div').css('height', maxHeight + 'px');
+
+    const TIMING_1 = 0;
     let TIMING_2 = TIMING_1 + maxHeight;
     let TIMING_3 = TIMING_2 + maxHeight;
     let TIMING_4 = TIMING_3 + maxHeight;
@@ -33,7 +36,7 @@ module.exports = function(){
             const actualTiming = eval('TIMING_'+(i+1));
             if(vt >= et - ot + actualTiming){
                 if( lastRelease < i+1 )lastRelease++;
-                $(this).removeClass('stuck').addClass('release');
+                if($(this).hasClass('stuck') && !$(this).hasClass('release')) $(this).removeClass('stuck').addClass('release');
             }else{
                 if( lastRelease === i+1 ){
                     lastRelease--;
