@@ -42,6 +42,13 @@ h1{
     > span{
         color: $white;
     }
+    .small{
+        font-size: 2.4rem;
+        letter-spacing: 0;
+    }
+    .no-space{
+        white-space: nowrap;
+    }
 }
 
 h2{
@@ -241,6 +248,9 @@ a{
 @media (max-width: $desktop-small){
     h1{
         font-size: 5rem;
+        .no-space{
+            white-space: normal;
+        }
     }
 }
 @media (max-width: $tablet){
