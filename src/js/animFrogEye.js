@@ -3,9 +3,10 @@ var $ = require('jquery-slim');
 require('gsap/CSSPlugin');
 require('gsap/EasePack');
 var TweenLite = require('gsap/TweenLite');
+var TimelineMax = require('gsap/TimelineMax');
 
-module.exports = function(eye, pupil, rectVisu, fly){
-    if (!eye.length || !pupil.length || !rectVisu.length || !fly.length) return;
+module.exports = function(eye, pupil, throat, rectVisu, fly){
+    if (!eye.length || !pupil.length || !throat.length || !rectVisu.length || !fly.length) return;
 
     const contentRect = rectVisu.find('.content-rect');
     const horizontal = {
@@ -24,6 +25,7 @@ module.exports = function(eye, pupil, rectVisu, fly){
     let eyeSize, distance;
     let oldX = 0, oldY = 0, newX, newY, flyX, flyY, angleDeg, oldAngleDeg;
     const flyWidth = fly.width()/2, flyHeight = fly.height()/2;
+    let count = 0, animgorge;
 
     function coordinate(pupil, eye, cursor, axis) {
         eyeSize = axis.size(eye) - axis.size(pupil);
@@ -56,9 +58,6 @@ module.exports = function(eye, pupil, rectVisu, fly){
         }else{
             angleDeg = Math.atan2(newY - oldY, newX - oldX) * 180 / Math.PI;
         }
-        
-
-        console.log('event.pageX : '+event.pageX);
 
         oldX = newX;
         oldY = newY;
@@ -70,6 +69,12 @@ module.exports = function(eye, pupil, rectVisu, fly){
         });
     }
 
+    function animThroat(){
+        animgorge = new TimelineMax({repeat: -1, yoyo:true, repeatDelay: 0.5});
+        animgorge.to(throat, 0.5, {scale: 2, x: '-35%', ease: Power2.easeOut});
+    }
+
+    animThroat();
     rectVisu.on('mousemove', function(event){
         TweenLite.set(pupil, {
             x: coordinate(pupil, eye, event, horizontal),

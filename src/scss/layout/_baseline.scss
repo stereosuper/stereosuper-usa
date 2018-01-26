@@ -64,6 +64,24 @@
         border-radius: 50%;
         overflow: hidden;
     }
+    &.wrapper-frog-throat{
+        width: 2.5%;
+        margin-top: 8%;
+        margin-left: 27.5%;
+    }
+}
+.frog-throat{
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+    background: #526e61;
+    transform-origin: 50% 50%;
+    &:before{
+        content: '';
+        display: block;
+        width: 100%;
+        padding-bottom: 100%;
+    }
 }
 .fly{
     position: absolute;
@@ -141,10 +159,15 @@
     }
     .elem-anim{
         &.frog-eye{
-            width: 2.4%;
-            height: 3.5%;
-            margin-top: -1.5%;
-            margin-left: 32.3%;
+            width: 3.6%;
+            height: 4%;
+            margin-top: -1.6%;
+            margin-left: 32.6%;
+        }
+        &.wrapper-frog-throat{
+            width: 2%;
+            margin-top: 0%;
+            margin-left: 33%;
         }
     }
 }

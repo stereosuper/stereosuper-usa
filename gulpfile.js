@@ -90,7 +90,7 @@ gulp.task('templates', function() {
         .pipe($.twig())
         .pipe($.extReplace('.html', '.html.html'))
     
-        .pipe($.prettify({ indent_size: 4 }))
+        // .pipe($.prettify({ indent_size: 4 }))
         .pipe($.htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('dest'))
         .pipe($.size({title: 'template'}));
