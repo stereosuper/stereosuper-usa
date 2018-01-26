@@ -1,21 +1,27 @@
 .recipe{
     position: relative;
-    height: 710px;
+    height: 2840px;
     margin: 0 auto 170px;
 }
 
 .container-sheet{
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 710px;
+    width: 1300px;
     &.stuck{
         position: fixed;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
         pointer-events: none;
     }
     &.release{
-        position: absolute;
+        position: relative;
+        left: auto;
+        transform: translateX(0);
     }
     > .container-small{
         position: relative;

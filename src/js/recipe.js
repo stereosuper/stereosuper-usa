@@ -13,74 +13,64 @@ module.exports = function(){
     const sheet3 = $('.container-sheet[data-sheet="3"]');
     const sheet4 = $('.container-sheet[data-sheet="4"]');
 
-    var TIMING_1 = 50;
-    var TIMING_2 = 550;
-    var TIMING_3 = 1050;
-    var TIMING_4 = 1550;
+    let maxHeight = sheet2.height();
+    const TIMING_1 = 50;
+    let TIMING_2 = TIMING_1 + maxHeight;
+    let TIMING_3 = TIMING_2 + maxHeight;
+    let TIMING_4 = TIMING_3 + maxHeight;
 
     let inRecipe = false;
+
+    let lastRelease = 0;
    
-    
-    
     let windowHeight = $(window).height();
     let elementTop = recipe.offset().top;
     let viewportTop = $(window).scrollTop();
-
-
-    let offsetTop = (windowHeight - recipe.outerHeight())/2;
+    let offsetTop = (windowHeight - maxHeight)/2;
 
     const releaseSheet = (et, ot, vt) => {
         sheets.each(function(i) {
             const actualTiming = eval('TIMING_'+(i+1));
             if(vt >= et - ot + actualTiming){
+                if( lastRelease < i+1 )lastRelease++;
                 $(this).removeClass('stuck').addClass('release');
-                $(this).css('top', '');
             }else{
-                $(this).addClass('stuck').removeClass('release');
-                $(this).css('top', offsetTop+'px');
+                if( lastRelease === i+1 ){
+                    lastRelease--;
+                    $(this).addClass('stuck').removeClass('release');
+                }                
             }
         });
         
     }
 
     const scroller = () => {
-
-
         windowHeight = $(window).height();
         elementTop = recipe.offset().top;
         viewportTop = $(window).scrollTop();
-        offsetTop = (windowHeight - recipe.outerHeight())/2;
-
-
+        offsetTop = (windowHeight - maxHeight)/2;
         if(elementTop - offsetTop <= viewportTop){
             if(!inRecipe){
                 inRecipe = true;
                 sheets.addClass('stuck').removeClass('release');
-                sheets.css('top', offsetTop+'px');
             }
             releaseSheet(elementTop, offsetTop, viewportTop);
-            
-            
         }else{
             inRecipe = false;
-            sheets.removeClass('stuck');
-            sheets.css('top', '');
+            sheets.removeClass('stuck release');
         }
-
-
-
-
     }
 
     $(document).on('scroll', throttle(function(){
         scroller();
-    }, 60));
+    }, 10));
 
     $(window).on('resize', throttle(function(){
-        windowHeight = $(window).height();
-        elementTop = recipe.offset().top;
-        viewportTop = $(window).scrollTop();
-        offsetTop = (windowHeight - recipe.outerHeight())/2;
+        maxHeight = sheet2.height();
+        TIMING_2 = TIMING_1 + maxHeight;
+        TIMING_3 = TIMING_2 + maxHeight;
+        TIMING_4 = TIMING_3 + maxHeight;
+        scroller();
     }, 60));
    
 }
