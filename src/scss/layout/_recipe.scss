@@ -384,8 +384,10 @@
         right: 0;
         margin-left: auto;
         margin-right: auto;
-        width: auto;
-        max-width: 100%;
+        &:not(.wrapper-ingredients){
+            width: auto;
+            max-width: 100%;
+        }
     }
     .cover{
         display: none;
@@ -398,6 +400,45 @@
 }
 
 @media (max-width: $tablet){
+    .wrapper-ingredients{
+        width: 441px;
+    }
+    .ingredients{
+        width: 441px;
+    }
+    .ingredients-title{
+        flex-wrap: wrap;
+        justify-content: center;
+        h3{
+            order: 1;
+            width: 100%;
+            > span{
+                margin: 0 auto;
+            }
+        }
+        .town{
+            order: 2;
+            margin: 0 0 0 25px;
+            
+            &:after{
+                width: 15px;
+                left: -25px;
+            }
+            &:first-child{
+                margin: 0 25px 0 0 ;          
+                &:after{
+                    right: -25px;
+                }
+            }
+        }
+    }
+    .ingredient-wrapper-img{
+        overflow: hidden;
+        height: 125px;
+        > img{
+            max-width: 113%;
+        }
+    }
     .mode-op{
         display: flex;
         flex-direction: column;
@@ -446,6 +487,19 @@
 }
 
 @media (max-width: $phone){
+    .wrapper-ingredients{
+        width: 340px;
+    }
+    .ingredients{
+        width: 340px;
+    }
+    .ingredient-wrapper-img{
+        height: 145px;
+        > img{
+            max-width: 163%;
+            margin-left: -43%;
+        }
+    }
     .meo{
         padding: 0 50px;
         > div {
@@ -483,6 +537,15 @@
 }
 
 @media (max-width: $phone-small){
+    .wrapper-ingredients{
+        width: 300px;
+    }
+    .ingredients{
+        width: 300px;
+    }
+    .ingredient-wrapper-img{
+        height: 125px;
+    }
     .mode-op{
         h3{
             letter-spacing: 0;
