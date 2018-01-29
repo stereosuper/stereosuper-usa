@@ -15,7 +15,12 @@ module.exports = function(){
 
     let maxHeight = sheet2.height();
 
-    $('.container-sheet>div').css('height', maxHeight + 'px');
+    if(window.outerWidth < 960){
+        $('.container-sheet>div').css('height', 'auto');
+        sheets.removeClass('stuck').addClass('release');
+    }else{
+        $('.container-sheet>div').css('height', maxHeight + 'px');
+    }
 
     const TIMING_1 = 0;
     let TIMING_2 = TIMING_1 + maxHeight;
@@ -27,6 +32,7 @@ module.exports = function(){
     let lastRelease = 0;
    
     let windowHeight = $(window).height();
+    let windowWidth = window.outerWidth;
     let elementTop = recipe.offset().top;
     let viewportTop = $(window).scrollTop();
     let offsetTop = (windowHeight - maxHeight)/2;
@@ -65,13 +71,16 @@ module.exports = function(){
     }
 
     $(document).on('scroll', throttle(function(){
-        scroller();
+        if(window.outerWidth > 960) scroller();
     }, 10));
 
     $(window).on('resize', throttle(function(){
+
+
+        
+
         maxHeight = sheet2.height();
 
-        $('.container-sheet>div').css('height', maxHeight + 'px');
 
         TIMING_2 = TIMING_1 + maxHeight;
         TIMING_3 = TIMING_2 + maxHeight;
@@ -82,10 +91,19 @@ module.exports = function(){
         lastRelease = 0;
     
         windowHeight = $(window).height();
+        windowWidth = window.outerWidth;
         elementTop = recipe.offset().top;
         viewportTop = $(window).scrollTop();
         offsetTop = (windowHeight - maxHeight)/2;
-        scroller();
+
+        if(window.outerWidth < 960){
+            $('.container-sheet>div').css('height', 'auto');
+            sheets.removeClass('stuck').addClass('release');
+        }else{
+            $('.container-sheet>div').css('height', maxHeight + 'px');
+            scroller();
+        }
+        
     }, 60));
    
 }

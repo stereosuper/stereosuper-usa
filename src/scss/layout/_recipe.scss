@@ -346,3 +346,50 @@
         text-decoration-skip: ink;
     }
 }
+
+@media (max-width: $desktop){
+    .mode-op{
+        right: auto;
+        left: -20px;
+    }
+    .voila{
+        right: auto;
+        left: -50px;
+    }
+}
+
+@media (max-width: $desktop-small){
+    .recipe{
+        height: auto;
+    }
+    .container-sheet{
+        height: auto;
+    }
+    .wrapper-ingredients{
+        padding-top: 16px;
+        width: 552px;
+    }
+    .ingredients{
+        margin: 0;
+    }
+    .sheet{
+        position: relative;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+        max-width: 100%;
+    }
+    .cover{
+        display: none;
+    }
+    .responses{
+        flex: 1;
+    }
+    .et-voila{
+        flex: auto;
+    }
+}
