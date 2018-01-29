@@ -10,10 +10,11 @@ var TweenLite = require('gsap/TweenLite');
 $(function(){
 
     window.requestAnimFrame = require('./requestAnimFrame.js');
-    var throttle = require('./throttle.js');
-    var noTransition = require('./noTransition.js');
-    var animFrogEye = require('./animFrogEye.js');
+    const throttle = require('./throttle.js');
+    const noTransition = require('./noTransition.js');
+    const animFrogEye = require('./animFrogEye.js');
     const recipe = require('./recipe.js');
+    const animRefs = require('./animRefs.js');
 
     var body = $('body');
     // window.outerWidth returns the window width including the scroll, but it's not working with $(window).outerWidth
@@ -32,6 +33,7 @@ $(function(){
 
     animFrogEye(frogEye, frogPupil, frogThroat, rectVisu, fly);
     recipe();
+    animRefs($('.reference'));
 
     // isMobile.any ? body.addClass('is-mobile') : body.addClass('is-desktop');
 
