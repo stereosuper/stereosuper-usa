@@ -11,7 +11,8 @@
     backface-visibility: hidden;
     perspective: 1000;
     height: 710px;
-    width: 1300px;
+    width: 100%;
+    max-width: 1300px;
     &.stuck{
         position: fixed;
         top: 0;
@@ -193,7 +194,7 @@
 
 .mode-op{
     top: 350px;
-    right: 50px;
+    right: 70px;
     width: 830px;
     padding: 50px 0 20px;
     transform: rotate(1deg);
@@ -297,6 +298,9 @@
     flex: 1;
     align-items: center;
     justify-content: center;
+    .music{
+        position: absolute;
+    }
 }
 
 .voila-body{

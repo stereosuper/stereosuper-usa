@@ -70,9 +70,21 @@ module.exports = function(){
 
     $(window).on('resize', throttle(function(){
         maxHeight = sheet2.height();
+
+        $('.container-sheet>div').css('height', maxHeight + 'px');
+
         TIMING_2 = TIMING_1 + maxHeight;
         TIMING_3 = TIMING_2 + maxHeight;
         TIMING_4 = TIMING_3 + maxHeight;
+
+        inRecipe = false;
+
+        lastRelease = 0;
+    
+        windowHeight = $(window).height();
+        elementTop = recipe.offset().top;
+        viewportTop = $(window).scrollTop();
+        offsetTop = (windowHeight - maxHeight)/2;
         scroller();
     }, 60));
    
