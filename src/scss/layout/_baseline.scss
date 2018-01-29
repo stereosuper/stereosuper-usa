@@ -32,7 +32,6 @@
         bottom: -50px;
         left: -100px;
         transform: rotate(-2deg);
-        cursor: none;
     }
     .wrapper-over-illus{
         pointer-events: none;
@@ -50,16 +49,45 @@
         left: 0;
         pointer-events: none;
     }
+    .wrapper-trigger{
+        position: absolute;
+        top: -50px;
+        right: -100px;
+        bottom: -50px;
+        left: -100px;
+        transform: rotate(-2deg);
+        cursor: none;
+        .zone-trigger{
+            position: absolute;
+            top: 50px;
+            right: 100px;
+            bottom: 50px;
+            left: 100px;
+            transform: rotate(2deg);
+        }
+    }
 }
 .elem-anim{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
+    &.frog{
+        width: 34%;
+        margin-top: 11.3%;
+        margin-left: 33%;
+        background: url('../img/frog.png') no-repeat 0 0;
+        background-size: 400% 400%;
+        &:before{
+            content: '';
+            display: block;
+            padding-bottom: 100%;
+        }
+    }
     &.frog-eye{
         width: 3.2%;
-        height: 3%;
-        margin-top: 5.7%;
+        height: 3.5%;
+        margin-top: 4.9%;
         margin-left: 27%;
         border-radius: 50%;
         overflow: hidden;
@@ -68,6 +96,14 @@
         width: 2.5%;
         margin-top: 8%;
         margin-left: 27.5%;
+    }
+    &.trigger-fly{
+        width: 10%;
+        height: 5%;
+        margin-top: 2.3%;
+        margin-left: 19%;
+        // background: red;
+        transform: translate3d(-50%, -50%, 0) rotate(18deg);
     }
 }
 .frog-throat{
@@ -123,7 +159,19 @@
             right: -50px;
             bottom: -25px;
             left: -50px;
-		}
+        }
+        .wrapper-trigger{
+            top: -25px;
+            right: -50px;
+            bottom: -25px;
+            left: -50px;
+            .zone-trigger{
+                top: 25px;
+                right: 50px;
+                bottom: 25px;
+                left: 50px;
+            }
+        }
 	}
 }
 @media (max-width: $desktop-small){
@@ -134,6 +182,18 @@
             right: -30px;
             bottom: -30px;
             left: -30px;
+        }
+        .wrapper-trigger{
+            top: -30px;
+            right: -30px;
+            bottom: -30px;
+            left: -30px;
+            .zone-trigger{
+                top: 30px;
+                right: 30px;
+                bottom: 30px;
+                left: 30px;
+            }
         }
         .container-baseline{
             flex-wrap: wrap;
@@ -169,6 +229,15 @@
             margin-top: 0%;
             margin-left: 33%;
         }
+        &.frog{
+            width: 23%;
+            margin-top: 2.8%;
+            margin-left: 36.5%;
+        }
+        &.trigger-fly{
+            margin-top: -4%;
+            margin-left: 25.5%;
+        }
     }
 }
 @media (max-width: $tablet){
@@ -178,6 +247,18 @@
             right: -10px;
             bottom: -20px;
             left: -10px;
+        }
+        .wrapper-trigger{
+            top: -20px;
+            right: -10px;
+            bottom: -20px;
+            left: -10px;
+            .zone-trigger{
+                top: 20px;
+                right: 10px;
+                bottom: 20px;
+                left: 10px;
+            }
         }
     }
 }

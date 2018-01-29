@@ -18,7 +18,7 @@ $(function(){
     var body = $('body');
     // window.outerWidth returns the window width including the scroll, but it's not working with $(window).outerWidth
     var windowWidth = window.outerWidth, windowHeight = $(window).height();
-    const frogEye = $('#frogEye'), frogPupil = $('#frogPupil'), frogThroat = $('#frogThroat'), rectVisu = $('#rectVisu'), fly = $('#fly');
+    const frog = $('#frog'), frogEye = $('#frogEye'), frogPupil = $('#frogPupil'), frogThroat = $('#frogThroat'), rectVisu = $('#rectVisu'), contentRectVisu = $('#contentRectVisu'), fly = $('#fly'), triggerFly = $('#triggerFly');
 
 
     function resizeHandler(){
@@ -30,7 +30,7 @@ $(function(){
 
     }
 
-    animFrogEye(frogEye, frogPupil, frogThroat, rectVisu, fly);
+    animFrogEye(frog, frogEye, frogPupil, frogThroat, rectVisu, contentRectVisu, fly, triggerFly);
     recipe();
 
     // isMobile.any ? body.addClass('is-mobile') : body.addClass('is-desktop');

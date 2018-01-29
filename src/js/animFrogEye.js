@@ -5,8 +5,8 @@ require('gsap/EasePack');
 var TweenLite = require('gsap/TweenLite');
 var TimelineMax = require('gsap/TimelineMax');
 
-module.exports = function(eye, pupil, throat, rectVisu, fly){
-    if (!eye.length || !pupil.length || !throat.length || !rectVisu.length || !fly.length) return;
+module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, fly, triggerFly){
+    if (!frog.length || !eye.length || !pupil.length || !throat.length || !rectVisu.length || !fly.length || !triggerFly.length) return;
 
     const contentRect = rectVisu.find('.content-rect');
     const horizontal = {
@@ -26,6 +26,8 @@ module.exports = function(eye, pupil, throat, rectVisu, fly){
     let oldX = 0, oldY = 0, newX, newY, flyX, flyY, angleDeg, oldAngleDeg;
     const flyWidth = fly.width()/2, flyHeight = fly.height()/2;
     let count = 0, animgorge;
+    let tlFrog, cols, rows, gridWidth, gridHeight, interval;
+    let flyActive = true;
 
     function coordinate(pupil, eye, cursor, axis) {
         eyeSize = axis.size(eye) - axis.size(pupil);
@@ -74,6 +76,42 @@ module.exports = function(eye, pupil, throat, rectVisu, fly){
         animgorge.to(throat, 0.5, {scale: 2, x: '-35%', ease: Power2.easeOut});
     }
 
+    function reinitFrog(){
+        tlFrog.pause(0);
+    }
+
+    function animateSprites(){
+        cols = 4;
+        rows = 4;
+        gridWidth = 33.333333;
+        gridHeight = 33.333333;
+        //var interval = 0.5; //for testing
+        interval = 0.03;
+
+
+
+        tlFrog = new TimelineLite({paused: true, onComplete: reinitFrog});
+        var count = 0;
+        for (var r = 0; r < rows; r++){
+            for (var c = 0; c < cols; c++){ 
+                var xpos = c * gridWidth;
+                var ypos = r * gridHeight;
+                tlFrog.set(frog, {backgroundPosition: xpos + '% ' +  ypos + '%'}, count * interval);
+                count++;
+            }
+        }
+
+        triggerFly.on('mouseenter', function(event){
+            if(flyActive){
+                tlFrog.play();
+                TweenLite.set(fly, {opacity: 0});
+                flyActive = false;
+                animgorge.restart();
+            }
+        });
+    }
+
+    animateSprites();
     animThroat();
     rectVisu.on('mousemove', function(event){
         TweenLite.set(pupil, {
@@ -83,15 +121,16 @@ module.exports = function(eye, pupil, throat, rectVisu, fly){
         });
         moveFly(event);
     }).on('mouseenter', function(event){
-        TweenLite.fromTo(contentRect, 0.8, {scale: 0.9}, {scale: 1, ease: Elastic.easeOut});
+        TweenLite.fromTo(contentRectVisu, 0.8, {scale: 0.9}, {scale: 1, ease: Elastic.easeOut});
         TweenLite.set(fly, {opacity: 1});
     }).on('mouseleave', function(event){
-        TweenLite.fromTo(contentRect, 0.8, {scale: 0.95}, {scale: 1, ease: Elastic.easeOut});
+        TweenLite.fromTo(contentRectVisu, 0.8, {scale: 0.95}, {scale: 1, ease: Elastic.easeOut});
         TweenLite.to(pupil, 0.1, {
             x: '70%',
             y: 0,
             scaleX: 1
         });
         TweenLite.set(fly, {opacity: 0});
+        flyActive = true;
     });
 }
