@@ -78,7 +78,7 @@
                 background: $primary;
             }
         }
-        @media (max-width: $desktop-small){
+        @media (min-width: $phone) and (max-width: $desktop-small){
             .reference{
                 &:nth-child(1), &:nth-child(4){
                     > div {
