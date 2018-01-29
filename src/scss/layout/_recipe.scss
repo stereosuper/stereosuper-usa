@@ -398,6 +398,24 @@
 }
 
 @media (max-width: $tablet){
+    .mode-op{
+        display: flex;
+        flex-direction: column;
+        h3{
+            order: 1;
+            margin: 0;
+            padding: 0 50px;
+            font-size: 5rem;
+        }
+    }
+    .meo{
+        order: 2;
+        flex-direction: column;
+        > div {
+            max-width: 400px;
+            margin: 0 auto 25px;
+        }
+    }
     .voila-body{
         flex-direction: column;
         .response{
@@ -428,6 +446,18 @@
 }
 
 @media (max-width: $phone){
+    .meo{
+        padding: 0 50px;
+        > div {
+            max-width: none;
+        }
+    }
+    .mode-op{
+        h3{
+            letter-spacing: 5px;
+            font-size: 4rem;
+        }
+    }
     .voila-body{
         .responses{
             flex-direction: column;
@@ -448,6 +478,14 @@
             &:first-child{
                 margin: 0 0 25px 0;
             }
+        }
+    }
+}
+
+@media (max-width: $phone-small){
+    .mode-op{
+        h3{
+            letter-spacing: 0;
         }
     }
 }
