@@ -15,10 +15,10 @@ module.exports = function(){
 
     let maxHeight = sheet2.height();
 
-    if(window.outerWidth < 960){
+    if (window.matchMedia("(max-width: 960px)").matches) {
         $('.container-sheet>div').css('height', 'auto');
         sheets.removeClass('stuck').addClass('release');
-    }else{
+    } else {
         $('.container-sheet>div').css('height', maxHeight + 'px');
     }
 
@@ -71,7 +71,7 @@ module.exports = function(){
     }
 
     $(document).on('scroll', throttle(function(){
-        if(window.outerWidth > 960) scroller();
+        if (window.matchMedia("(min-width: 961px)").matches) scroller();
     }, 10));
 
     $(window).on('resize', throttle(function(){
@@ -96,10 +96,11 @@ module.exports = function(){
         viewportTop = $(window).scrollTop();
         offsetTop = (windowHeight - maxHeight)/2;
 
-        if(window.outerWidth < 960){
+
+        if (window.matchMedia("(max-width: 960px)").matches) {
             $('.container-sheet>div').css('height', 'auto');
             sheets.removeClass('stuck').addClass('release');
-        }else{
+        } else {
             $('.container-sheet>div').css('height', maxHeight + 'px');
             scroller();
         }
