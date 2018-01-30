@@ -21,18 +21,9 @@ module.exports = function(isMobile){
     } else {
         $('.container-sheet>div').css('height', maxHeight + 'px');
     }
-
-    const TIMING_1 = 0;
-    let TIMING_2 = TIMING_1 + maxHeight;
-    let TIMING_3 = TIMING_2 + maxHeight;
-    let TIMING_4 = TIMING_3 + maxHeight;
-
     let TIMING = [0, maxHeight, maxHeight*2, maxHeight*3];
-
     let inRecipe = false;
-
     let lastRelease = 0;
-   
     let windowHeight = window.innerHeight;
     let windowWidth = window.outerWidth;
     let elementTop = recipe.offset().top;
@@ -52,12 +43,10 @@ module.exports = function(isMobile){
                 }                
             }
         });
-        
     }
 
     const scroller = () => {
         viewportTop = $(window).scrollTop();
-        console.log(offsetTop);
         if(elementTop - offsetTop <= viewportTop){
             if(!inRecipe){
                 inRecipe = true;
@@ -75,30 +64,15 @@ module.exports = function(isMobile){
     });
 
     $(window).on('resize', function(){
-
-
-        
-
         maxHeight = sheet2.height();
-
-
-        TIMING_2 = TIMING_1 + maxHeight;
-        TIMING_3 = TIMING_2 + maxHeight;
-        TIMING_4 = TIMING_3 + maxHeight;
-
         TIMING = [0, maxHeight, maxHeight*2, maxHeight*3];
-
         inRecipe = false;
-
         lastRelease = 0;
-    
         windowHeight = window.innerHeight;
         windowWidth = window.outerWidth;
         elementTop = recipe.offset().top;
         viewportTop = $(window).scrollTop();
         offsetTop = (windowHeight - maxHeight)/2;
-
-
         if (window.matchMedia("(max-width: 960px)").matches || isMobile) {
             $('.container-sheet>div').css('height', 'auto');
             sheets.removeClass('stuck').addClass('release');
@@ -106,7 +80,5 @@ module.exports = function(isMobile){
             $('.container-sheet>div').css('height', maxHeight + 'px');
             scroller();
         }
-        
     });
-   
 }

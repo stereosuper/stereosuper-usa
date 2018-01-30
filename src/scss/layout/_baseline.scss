@@ -3,6 +3,9 @@
     align-items: center;
     min-height: 100vh;
     padding: 170px 0;
+    > .container{
+        width: 100%;
+    }
     .container-baseline{
         display: flex;
         align-items: center;
@@ -24,6 +27,7 @@
     .txt{
         position: relative;
         pointer-events: none;
+        color: $grey;
     }
     .rect-visu, .wrapper-over-illus{
         position: absolute;
@@ -177,6 +181,7 @@
 @media (max-width: $desktop-small){
     .wrapper-baseline{
         min-height: 0;
+        padding: 170px 0 120px;
         .rect-visu, .wrapper-over-illus{
             top: -30px;
             right: -30px;
@@ -205,7 +210,6 @@
             }
         }
         .visu{
-            order: 2;
             max-width: 600px;
             margin: 0 auto;
             img{
@@ -214,7 +218,9 @@
             }
         }
         .txt{
-            order: 1;
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto;
         }
     }
     .elem-anim{

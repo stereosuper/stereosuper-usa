@@ -46,19 +46,34 @@
 @media (max-width: $tablet){
     .container-contact{
         flex-wrap: wrap;
+        padding-left: 10%;
         .visu{
-            order: 2;
+            width: 40%;
+            // max-width: 200px;
+            // margin: 0 auto;
+        }
+        .txt{
+            width: 50%;
+        }
+        .rect-visu{
+            right: -30px;
+            left: -30px;
+        }
+    }
+}
+
+@media (max-width: $phone){
+    .container-contact{
+        padding-left: 0;
+        .visu{
             width: 90%;
             max-width: 200px;
             margin: 0 auto;
         }
         .txt{
-            order: 1;
-            width: 100%;
-        }
-        .rect-visu{
-            right: -30px;
-            left: -30px;
+            max-width: 350px;
+            width: 90%;
+            margin: -20px auto 0;
         }
     }
 }
