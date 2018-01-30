@@ -5,7 +5,7 @@ const throttle = require('./throttle.js');
 require('gsap/CSSPlugin');
 const TweenLite = require('gsap/TweenLite');
 
-module.exports = function(){
+module.exports = function(isMobile){
     const recipe = $('#recipe');
     const sheets = $('.container-sheet');
     const sheet1 = $('.container-sheet[data-sheet="1"]');
@@ -15,7 +15,7 @@ module.exports = function(){
 
     let maxHeight = sheet2.height();
 
-    if (window.matchMedia("(max-width: 960px)").matches) {
+    if (window.matchMedia("(max-width: 960px)").matches || isMobile) {
         $('.container-sheet>div').css('height', 'auto');
         sheets.removeClass('stuck').addClass('release');
     } else {
@@ -27,11 +27,13 @@ module.exports = function(){
     let TIMING_3 = TIMING_2 + maxHeight;
     let TIMING_4 = TIMING_3 + maxHeight;
 
+    let TIMING = [0, maxHeight, maxHeight*2, maxHeight*3];
+
     let inRecipe = false;
 
     let lastRelease = 0;
    
-    let windowHeight = $(window).height();
+    let windowHeight = window.innerHeight;
     let windowWidth = window.outerWidth;
     let elementTop = recipe.offset().top;
     let viewportTop = $(window).scrollTop();
@@ -39,7 +41,7 @@ module.exports = function(){
 
     const releaseSheet = (et, ot, vt) => {
         sheets.each(function(i) {
-            const actualTiming = eval('TIMING_'+(i+1));
+            const actualTiming = TIMING[i];
             if(vt >= et - ot + actualTiming){
                 if( lastRelease < i+1 )lastRelease++;
                 if($(this).hasClass('stuck') && !$(this).hasClass('release')) $(this).removeClass('stuck').addClass('release');
@@ -54,10 +56,8 @@ module.exports = function(){
     }
 
     const scroller = () => {
-        windowHeight = $(window).height();
-        elementTop = recipe.offset().top;
         viewportTop = $(window).scrollTop();
-        offsetTop = (windowHeight - maxHeight)/2;
+        console.log(offsetTop);
         if(elementTop - offsetTop <= viewportTop){
             if(!inRecipe){
                 inRecipe = true;
@@ -70,11 +70,11 @@ module.exports = function(){
         }
     }
 
-    $(document).on('scroll', throttle(function(){
-        if (window.matchMedia("(min-width: 961px)").matches) scroller();
-    }, 10));
+    $(document).on('scroll', function(){
+        if (window.matchMedia("(min-width: 961px)").matches && !isMobile) scroller();
+    });
 
-    $(window).on('resize', throttle(function(){
+    $(window).on('resize', function(){
 
 
         
@@ -86,18 +86,20 @@ module.exports = function(){
         TIMING_3 = TIMING_2 + maxHeight;
         TIMING_4 = TIMING_3 + maxHeight;
 
+        TIMING = [0, maxHeight, maxHeight*2, maxHeight*3];
+
         inRecipe = false;
 
         lastRelease = 0;
     
-        windowHeight = $(window).height();
+        windowHeight = window.innerHeight;
         windowWidth = window.outerWidth;
         elementTop = recipe.offset().top;
         viewportTop = $(window).scrollTop();
         offsetTop = (windowHeight - maxHeight)/2;
 
 
-        if (window.matchMedia("(max-width: 960px)").matches) {
+        if (window.matchMedia("(max-width: 960px)").matches || isMobile) {
             $('.container-sheet>div').css('height', 'auto');
             sheets.removeClass('stuck').addClass('release');
         } else {
@@ -105,6 +107,6 @@ module.exports = function(){
             scroller();
         }
         
-    }, 60));
+    });
    
 }

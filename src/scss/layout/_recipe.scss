@@ -17,6 +17,7 @@
     &.stuck{
         position: fixed;
         top: 0;
+        transform: translate3d(-50%, 0, 0);
         height: 100vh;
         display: flex;
         align-items: center;
@@ -25,10 +26,11 @@
     &.release{
         position: relative;
         left: auto;
-        transform: translateX(0);
+        transform: translate3d(0,0,0);
     }
     > .container-small{
         position: relative;
+        transform: translate3d(0,0,0);
         height: 710px;
     }
     &:first-child{
@@ -349,6 +351,43 @@
         font-family: $elena;
         color: #2c2c2c;
         text-decoration-skip: ink;
+    }
+}
+
+.is-mobile{
+    .recipe{
+        height: auto;
+    }
+    .container-sheet{
+        height: auto;
+    }
+    .wrapper-ingredients{
+        padding-top: 16px;
+        width: 552px;
+    }
+    .ingredients{
+        margin: 0;
+    }
+    .sheet{
+        position: relative;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        &:not(.wrapper-ingredients){
+            width: auto;
+            max-width: 100%;
+        }
+    }
+    .cover{
+        display: none;
+    }
+    .et-voila{
+        img {
+            max-width: 300px;
+        }
     }
 }
 

@@ -1,6 +1,7 @@
 'use strict';
 
 var $ = require('jquery-slim');
+var isMobile = require('ismobilejs');
 
 // require('gsap');
 require('gsap/CSSPlugin');
@@ -32,10 +33,10 @@ $(function(){
     }
 
     animFrogEye(frog, frogEye, frogPupil, frogThroat, rectVisu, contentRectVisu, fly, triggerFly);
-    recipe();
+    recipe(isMobile.any);
     animRefs($('.reference'));
 
-    // isMobile.any ? body.addClass('is-mobile') : body.addClass('is-desktop');
+    isMobile.any ? body.addClass('is-mobile') : body.addClass('is-desktop');
 
     // Since script is loaded asynchronously, load event isn't always fired !!!
     document.readyState === 'complete' ? loadHandler() : $(window).on('load', loadHandler);
