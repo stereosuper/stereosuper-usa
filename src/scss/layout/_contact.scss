@@ -7,7 +7,17 @@
     .visu{
         position: relative;
         width: percentage(3/8);
-        img{
+        .bg{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            max-width: none;
+            width: auto;
+            height: 70%;
+            width: auto;
+            transform: translate3d(-50%, 0, 0);
+        }
+        .illus{
             position: relative;
             width: calc(100% + 15px);
             max-width: none;
