@@ -3,8 +3,14 @@ const TweenLite = require('gsap/TweenLite');
 
 module.exports = function(refs){
     let loop = true;
+    let under;
     let windowWidth = window.outerWidth;
-    if(windowWidth > 960) run(refs);
+    if(windowWidth > 960){
+        run(refs);
+        under = false;
+    }else{
+        under = true;
+    }
     function run (references) {
         loop = !loop;
         references.each(function(i){
@@ -15,5 +21,11 @@ module.exports = function(refs){
     }
     $(window).on('resize', function(){
         windowWidth = window.outerWidth;
+        if(windowWidth < 960 && !under){
+            refs.css('transform', '');
+            under = true;
+        }else{
+            under = false;
+        }
     });
 }

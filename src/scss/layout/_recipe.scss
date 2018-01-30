@@ -2,6 +2,7 @@
     position: relative;
     height: 2840px;
     margin: 0 auto 170px;
+    overflow: hidden;
 }
 
 .container-sheet{
@@ -295,7 +296,6 @@
 .et-voila{
     position: relative;
     display: flex;
-    flex: 1;
     align-items: center;
     justify-content: center;
     padding: 0 50px;
@@ -320,6 +320,7 @@
     }
     .responses{
         padding: 100px 0;
+        flex: 1 1 0px;
     }
     .response{
         position: relative;
@@ -458,7 +459,8 @@
         }
     }
     .voila-body{
-        flex-direction: column;
+        flex-wrap: wrap;
+
         .response{
             width: 40%;
             padding: 0;
@@ -470,6 +472,8 @@
             }
         }
         .responses{
+            width: 100%;
+            flex: 0 1 auto;
             order: 2;
             padding: 50px;
             display: flex;
@@ -477,8 +481,14 @@
         }
     }
     .et-voila{
+        width: 100%;
         order: 1;
         margin: 50px 0 0 0;
+        display: block;
+        > img{
+            display: block;
+            margin: 0 auto;
+        }
     }
     .voila-footer{
         padding: 45px 50px;
