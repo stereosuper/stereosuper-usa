@@ -107,6 +107,9 @@ module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, f
                 TweenLite.set(fly, {opacity: 0});
                 flyActive = false;
                 animgorge.restart();
+                TweenLite.delayedCall(0.2, function(){
+                    rectVisu.removeClass('no-cursor');
+                });
             }
         });
     }
@@ -134,6 +137,7 @@ module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, f
     }).on('mouseenter', function(event){
         TweenLite.to(contentRectVisu, 0.6, {scale: 0.97, ease: Elastic.easeOut.config(1, 0.2)});
         TweenLite.set(fly, {opacity: 1});
+        $(this).addClass('no-cursor');
     }).on('mouseleave', function(event){
         TweenLite.to(contentRectVisu, 0.1, {scale: 1, ease: Power1.easeInOut});
         TweenLite.to(pupil, 0.1, {
@@ -143,6 +147,7 @@ module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, f
         });
         TweenLite.set(fly, {opacity: 0});
         flyActive = true;
+        $(this).removeClass('no-cursor');
     });
 
     var resizeHandler = throttle(function(){
