@@ -7,6 +7,7 @@ require('gsap/CSSPlugin');
 require('gsap/EasePack');
 var TweenLite = require('gsap/TweenLite');
 var TimelineMax = require('gsap/TimelineMax');
+const mapRange = require('./mapRange');
 
 module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, fly, triggerFly){
     if (!frog.length || !eye.length || !pupil.length || !throat.length || !rectVisu.length || !fly.length || !triggerFly.length) return;
@@ -39,10 +40,6 @@ module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, f
                     axis.offset(pupil) -
                     axis.size(pupil) / 2;
         return Math.max(0, Math.min(eyeSize, distance));
-    }
-
-    function mapRange(value, low1, high1, low2, high2) {
-        return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
     }
 
     function calculateDistance(elem, event){
