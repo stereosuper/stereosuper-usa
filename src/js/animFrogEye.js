@@ -1,5 +1,8 @@
 var $ = require('jquery-slim');
 
+var throttle = require('./throttle.js');
+window.requestAnimFrame = require('./requestAnimFrame.js');
+
 require('gsap/CSSPlugin');
 require('gsap/EasePack');
 var TweenLite = require('gsap/TweenLite');
@@ -111,8 +114,19 @@ module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, f
         });
     }
 
+    function roundElem(elemToRound){
+        TweenLite.set(elemToRound, {clearProps: 'width, height'});
+        TweenLite.set(elemToRound, {width: 2*Math.round(elemToRound.width()/2), height: 2*Math.round(elemToRound.height()/2)});
+    }
+
+    function updateResize(){
+        roundElem(frog);
+    }
+
     animateSprites();
     animThroat();
+    roundElem(frog);
+    
     rectVisu.on('mousemove', function(event){
         TweenLite.set(pupil, {
             x: coordinate(pupil, eye, event, horizontal),
@@ -133,4 +147,10 @@ module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, f
         TweenLite.set(fly, {opacity: 0});
         flyActive = true;
     });
+
+    var resizeHandler = throttle(function(){
+        requestAnimFrame(updateResize);
+    }, 40);
+
+    $(window).on('resize', resizeHandler);
 }
