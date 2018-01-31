@@ -17,12 +17,12 @@
     </div>
     <div class='wrapper-baseline'>
         <div class='container'>
-            <div class='container-small container-baseline'>
+            <div class='container-small container-baseline' id='baseline'>
                 <div class='visu'>
                     <div class='rect-visu'>
-                        <div class='content-rect' id='contentRectVisu'></div>
+                        <div class='content-rect layer' data-gyro='3' id='contentRectVisu'></div>
                     </div>
-                    <div class='wrapper-anim'>
+                    <div class='wrapper-anim layer' data-gyro='2' >
                         <span class='elem-anim wrapper-frog-throat'>
                             <span class='frog-throat' id='frogThroat'></span>
                         </span>
@@ -33,7 +33,7 @@
                         </span>
                         <span class='elem-anim frog' id='frog'></span>
                     </div>
-                    <picture>
+                    <picture class='layer' data-gyro='2'>
                         <source srcset='./img/illus-cuisiner-small.png' media='(max-width: 960px)'>
                         <source srcset='./img/illus-cuisiner.png' media='(min-width: 961px)'>
                         <img src='./img/illus-cuisiner.png' alt='Un bon ragout de grenouille'>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </div>
-                <div class='txt'>
+                <div class='txt layer' data-gyro='1'>
                     <h1>Seuls les frenchies savent <span class='no-space'><span>cuisiner</span><span class='small'>&nbsp;(non&nbsp;?)</span></span></h1>
                     <p>Autant dire que <strong>seuls les frenchies de Stéréosuper</strong> sauront transmettre votre image, travailler votre identité visuelle, designer votre site ou votre app aux USA. Ça tombe bien, nous travaillons à l’ouverture de nouveaux bureaux à New-York&nbsp;! <span class='color-white'>Parlons-en&nbsp;!</span></p>
                 </div>

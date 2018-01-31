@@ -36,7 +36,7 @@ $(function(){
     animFrogEye(frog, frogEye, frogPupil, frogThroat, rectVisu, contentRectVisu, fly, triggerFly);
     recipe(isMobile.any);
     animRefs($('.reference'));
-    gyro();
+    gyro($('#baseline'));
 
     isMobile.any ? body.addClass('is-mobile') : body.addClass('is-desktop');
 
