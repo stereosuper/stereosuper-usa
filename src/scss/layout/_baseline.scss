@@ -17,7 +17,6 @@
         position: relative;
         img{
             position: relative;
-            // width: calc(100% + 15px);
             width: 100%;
             max-width: none;
             height: auto;
@@ -26,7 +25,6 @@
     }
     .txt{
         position: relative;
-        pointer-events: none;
         color: $grey;
     }
     .rect-visu, .wrapper-over-illus{
