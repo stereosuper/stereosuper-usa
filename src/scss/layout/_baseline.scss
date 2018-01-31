@@ -60,7 +60,9 @@
         bottom: -50px;
         left: -100px;
         transform: rotate(-2deg);
-        cursor: none;
+        &.no-cursor{
+            cursor: none;
+        }
         .zone-trigger{
             position: absolute;
             top: 50px;
