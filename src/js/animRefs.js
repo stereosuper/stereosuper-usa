@@ -17,7 +17,7 @@ module.exports = function(refs){
             const coeff = (i + loop) % 2 ? -1 : 1;
             TweenLite.to($(this), 0.6, { y: coeff * 10 + (Math.random() * 5 - 5), ease: Power2.easeInOut});
         });
-        if(windowWidth > 960) TweenLite.delayedCall(13, run, [references]);
+        if(windowWidth > 960) TweenLite.delayedCall(1, run, [references]);
     }
     $(window).on('resize', function(){
         windowWidth = window.outerWidth;

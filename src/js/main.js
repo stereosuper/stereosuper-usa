@@ -15,6 +15,7 @@ $(function(){
     const noTransition = require('./noTransition.js');
     const animFrogEye = require('./animFrogEye.js');
     const recipe = require('./recipe.js');
+    const gyro = require('./gyro.js');
     const animRefs = require('./animRefs.js');
 
     var body = $('body');
@@ -35,6 +36,7 @@ $(function(){
     animFrogEye(frog, frogEye, frogPupil, frogThroat, rectVisu, contentRectVisu, fly, triggerFly);
     recipe(isMobile.any);
     animRefs($('.reference'));
+    gyro();
 
     isMobile.any ? body.addClass('is-mobile') : body.addClass('is-desktop');
 

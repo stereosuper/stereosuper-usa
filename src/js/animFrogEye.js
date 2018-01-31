@@ -121,10 +121,10 @@ module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, f
         });
         moveFly(event);
     }).on('mouseenter', function(event){
-        TweenLite.fromTo(contentRectVisu, 0.8, {scale: 0.9}, {scale: 1, ease: Elastic.easeOut});
+        TweenLite.to(contentRectVisu, 0.6, {scale: 0.97, ease: Elastic.easeOut.config(1, 0.2)});
         TweenLite.set(fly, {opacity: 1});
     }).on('mouseleave', function(event){
-        TweenLite.fromTo(contentRectVisu, 0.8, {scale: 0.95}, {scale: 1, ease: Elastic.easeOut});
+        TweenLite.to(contentRectVisu, 0.1, {scale: 1, ease: Power1.easeInOut});
         TweenLite.to(pupil, 0.1, {
             x: '70%',
             y: 0,
