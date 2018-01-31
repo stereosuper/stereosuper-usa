@@ -40,6 +40,7 @@
     .wrapper-over-illus{
         pointer-events: none;
         transform: rotate(-2deg) scale(0.97);
+        overflow: hidden;
     }
     .content-rect{
         display: block;
