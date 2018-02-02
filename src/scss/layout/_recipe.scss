@@ -440,7 +440,7 @@
 }
 
 @media (max-width: $tablet){
-    .wrapper-ingredients{
+    .wrapper-ingredients, .is-mobile .wrapper-ingredients{
         width: 441px;
     }
     .ingredients{
@@ -536,7 +536,7 @@
 }
 
 @media (max-width: $phone){
-    .wrapper-ingredients{
+    .wrapper-ingredients, .is-mobile .wrapper-ingredients{
         width: 340px;
     }
     .ingredients{
@@ -586,7 +586,7 @@
 }
 
 @media (max-width: $phone-small){
-    .wrapper-ingredients{
+    .wrapper-ingredients, .is-mobile .wrapper-ingredients{
         width: 300px;
     }
     .ingredients{
