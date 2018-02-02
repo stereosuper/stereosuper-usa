@@ -1,6 +1,7 @@
 const $ = require('jquery-slim');
 const TweenLite = require('gsap/TweenLite');
 const mapRange = require('./mapRange')
+window.requestAnimFrame = require('./requestAnimFrame.js');
 
 module.exports = function(scene){
     
@@ -10,6 +11,10 @@ module.exports = function(scene){
     let hasOrientation = false;
     let o = {};
     let n = {};
+    let a = {};
+    let timeToWaitRotation;
+
+    let orientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
 
     const initGyro = e => {
         hasOrientation = true;
@@ -17,35 +22,56 @@ module.exports = function(scene){
             alpha: e.alpha,
             beta: e.beta,
             gamma: e.gamma
-        }        
+        }
+        console.log(o);
     }
 
     const parallax = (e, layers) => {
-        n = {
-            alpha: o.alpha - e.alpha,
-            beta: o.beta - e.beta,
-            gamma: o.gamma - e.gamma,
+        if(orientation == 'portrait'){
+            n = {
+                beta: o.beta - e.beta,
+                gamma: o.gamma - e.gamma,
+            }
+        }else{
+            n = {
+                beta: -(o.gamma - e.gamma),
+                gamma: -(o.beta - e.beta),
+            }
         }
         
-        layers.each(function(){
-            const x = (n.alpha/4) * ($(this).data('gyro') * -4);
 
-            const y = (n.beta/4) * ($(this).data('gyro') * -4);
-
-            console.log(x,y);
-
-
-            TweenLite.set($(this), {x: x, y: y})
-        });
-        
-
-        
+        if (n.gamma > 75 || n.gamma < -75 || n.beta > 75 || n.beta < -75) {
+            TweenLite.to(layers, 0.2, {x: 0, y: 0, ease: Power2.easeInOut})
+        }else{
+            layers.each(function(){
+                const x = (n.gamma/10) * ($(this).data('gyro') * 4);
+                const y = (n.beta/10) * ($(this).data('gyro') * 4);
+                TweenLite.to($(this), 0.1, {x: x, y: y, ease: Power2.easeInOut})
+            });
+        }
     }
 
     const orientationHandler = e => {
-        !hasOrientation ? initGyro(e) : parallax(e, bLayers);
+        a = {
+            alpha: e.alpha,
+            beta: e.beta,
+            gamma: e.gamma
+        };
+        !hasOrientation ? initGyro(a) : parallax(a, bLayers);
     }
 
-    window.addEventListener("deviceorientation", orientationHandler, true);
+    window.addEventListener("deviceorientation", function(e){
+        requestAnimationFrame(function(){
+            orientationHandler(e);
+        });        
+    }, true);
+
+    window.addEventListener("orientationchange", function(e) {
+        clearTimeout(timeToWaitRotation);
+        orientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
+        timeToWaitRotation = setTimeout(function(){
+            initGyro(a);
+        }, 1000);
+    }, false);
 
 }

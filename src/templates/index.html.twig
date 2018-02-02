@@ -207,15 +207,17 @@
     </div>
     <div class='contact'>
         <div class='container'>
-            <div class='container-tiny container-contact'>
+            <div class='container-tiny container-contact' id='contact'>
                 <div class='visu'>
-                    <div class='rect-visu'>
+                    <div class='rect-visu layer' data-gyro='3'>
                         <div class='content-rect'></div>
                     </div>
-                    <img class='bg' src='./img/bg-cuisiner.png'>
-                    <img class='illus' src='./img/jf-cuisiner.png'>
+                    <div data-gyro='2' class='layer wrapper-bg'>
+                        <img class='bg' src='./img/bg-cuisiner.png'>
+                    </div>
+                    <img class='illus layer' data-gyro='1' src='./img/jf-cuisiner.png'>
                 </div>
-                <div class='txt'>
+                <div class='txt layer' data-gyro='1'>
                     <a href='mailto:bisou@stereosuper.fr?subject=#WORKWITHFRENCHIES' class='link-arrow' title='Nous envoyer un email'>
                         <span>
                             Contactez <span>nous</span>&nbsp;<svg class='icon i1'><use xlink:href='#icon-small-arrow'/></svg><svg class='icon i2'><use xlink:href='#icon-small-arrow'/></svg>
