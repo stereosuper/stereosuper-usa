@@ -1,12 +1,18 @@
+//import { TweenMax, Power2 } from 'gsap';
+
 const $ = require('jquery-slim');
-const TweenLite = require('gsap/TweenLite');
+require('gsap');
 
 module.exports = function(refs){
+    console.log(TweenMax);
     let loop = true;
     let under;
     let windowWidth = window.outerWidth;
     if(windowWidth > 960){
         run(refs);
+        under = false;
+    }else if(window.matchMedia("(max-width: 580px)").matches){
+        mobile(refs);
         under = false;
     }else{
         under = true;
@@ -15,17 +21,34 @@ module.exports = function(refs){
         loop = !loop;
         references.each(function(i){
             const coeff = (i + loop) % 2 ? -1 : 1;
-            TweenLite.to($(this), 0.6, { y: coeff * 10 + (Math.random() * 5 - 5), ease: Power2.easeInOut});
+            TweenMax.to($(this), 0.6, { x: 0, y: coeff * 10 + (Math.random() * 5 - 5), ease: Power2.easeInOut});
         });
-        if(windowWidth > 960) TweenLite.delayedCall(1, run, [references]);
+        if(windowWidth > 960) TweenMax.delayedCall(1, run, [references]);
     }
+
+    function mobile (references) {
+        loop = !loop;
+        references.each(function(i){
+            const coeff = (i + loop) % 2 ? -1 : 1;
+            TweenMax.to($(this), 0.6, { y: 0, x: coeff * 10 + (Math.random() * 5 - 5), ease: Power2.easeInOut});
+        });
+        console.log('mobile', window.matchMedia("(max-width: 580px)").matches);
+        
+        if(window.matchMedia("(max-width: 580px)").matches) TweenMax.delayedCall(1, mobile, [references]);
+    }
+
     $(window).on('resize', function(){
         windowWidth = window.outerWidth;
-        if(windowWidth < 960 && !under){
-            refs.css('transform', '');
+        if(windowWidth < 960 && window.matchMedia("(min-width: 581px)").matches && !under){
+            TweenMax.to(refs, 0.6, {x: 0, ease: Power2.easeInOut});
             under = true;
-        }else{
+        }else if(windowWidth > 960 && under){
             under = false;
+            TweenMax.delayedCall(1, run, [refs])
+        }else if(window.matchMedia("(max-width: 580px)").matches && under){
+            under = false;
+            TweenMax.delayedCall(1, mobile, [refs])
+            
         }
     });
 }
