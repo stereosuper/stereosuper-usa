@@ -23,7 +23,6 @@ module.exports = function(scene){
             beta: e.beta,
             gamma: e.gamma
         }
-        console.log(o);
     }
 
     const parallax = (e, layers) => {

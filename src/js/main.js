@@ -38,6 +38,13 @@ $(function(){
     animRefs($('.reference'));
     gyro($('#baseline, #contact'));
 
+    $('#contactLink').on('mouseenter', function(event){
+        TweenLite.to($('#contactRect'), 0.6, {scale: 0.95, ease: Elastic.easeOut.config(1, 0.2)});
+    }).on('mouseleave', function(event){
+        TweenLite.to($('#contactRect'), 0.1, {scale: 1, ease: Power1.easeInOut});
+    });
+
+
     isMobile.any ? body.addClass('is-mobile') : body.addClass('is-desktop');
 
     // Since script is loaded asynchronously, load event isn't always fired !!!
