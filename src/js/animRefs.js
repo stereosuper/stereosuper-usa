@@ -4,7 +4,6 @@ const $ = require('jquery-slim');
 require('gsap');
 
 module.exports = function(refs){
-    console.log(TweenMax);
     let loop = true;
     let under;
     let windowWidth = window.outerWidth;
@@ -32,7 +31,6 @@ module.exports = function(refs){
             const coeff = (i + loop) % 2 ? -1 : 1;
             TweenMax.to($(this), 0.6, { y: 0, x: coeff * 10 + (Math.random() * 5 - 5), ease: Power2.easeInOut});
         });
-        console.log('mobile', window.matchMedia("(max-width: 580px)").matches);
         
         if(window.matchMedia("(max-width: 580px)").matches) TweenMax.delayedCall(1, mobile, [references]);
     }
