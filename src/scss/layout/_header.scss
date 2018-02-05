@@ -70,12 +70,13 @@
     &:after, &:before{
         position: absolute;
         top: 12px;
+        left: 12px;
         content: '';
         display: block;
         width:  75px;
         height: 1px;
         background-color: white;
-        transform-origin: 50% 50%;
+        transform-origin: 37.5px 1px;
     }
     &:before{
         transform: rotate(45deg);

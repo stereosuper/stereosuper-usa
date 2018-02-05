@@ -14,6 +14,7 @@ $(function(){
     const throttle = require('./throttle.js');
     const noTransition = require('./noTransition.js');
     const animFrogEye = require('./animFrogEye.js');
+    const animBubble = require('./animBubble.js');
     const recipe = require('./recipe.js');
     const gyro = require('./gyro.js');
     const animRefs = require('./animRefs.js');
@@ -22,6 +23,9 @@ $(function(){
     // window.outerWidth returns the window width including the scroll, but it's not working with $(window).outerWidth
     var windowWidth = window.outerWidth, windowHeight = $(window).height();
     const frog = $('#frog'), frogEye = $('#frogEye'), frogPupil = $('#frogPupil'), frogThroat = $('#frogThroat'), rectVisu = $('#rectVisu'), contentRectVisu = $('#contentRectVisu'), fly = $('#fly'), triggerFly = $('#triggerFly');
+    const bubble1 = $('#bubble1');
+    const bubble2 = $('#bubble2');
+    const bubble3 = $('#bubble3');
 
 
     function resizeHandler(){
@@ -34,6 +38,9 @@ $(function(){
     }
 
     animFrogEye(frog, frogEye, frogPupil, frogThroat, rectVisu, contentRectVisu, fly, triggerFly);
+    // animBubble(bubble1, 5.4);
+    // animBubble(bubble2, 6);
+    // animBubble(bubble3, 9);
     recipe(isMobile.any);
     animRefs($('.reference'));
     gyro($('#baseline, #contact'));

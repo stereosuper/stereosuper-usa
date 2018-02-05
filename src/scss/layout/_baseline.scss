@@ -93,6 +93,26 @@
             padding-bottom: 100%;
         }
     }
+    &.bubble{
+        width: 9%;
+        margin-top: -27%;
+        margin-left: 6%;
+        background: url('../img/bubble.png') no-repeat 0 0;
+        background-size: 400% 500%;
+        &:before{
+            content: '';
+            display: block;
+            padding-bottom: 100%;
+        }
+        &.bubble-2{
+            margin-top: -26%;
+            margin-left: 3%;
+        }
+        &.bubble-3{
+            margin-top: -28%;
+            margin-left: -9%;
+        }
+    }
     &.frog-eye{
         width: 3.2%;
         height: 3.5%;
