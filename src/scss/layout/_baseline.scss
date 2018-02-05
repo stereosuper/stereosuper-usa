@@ -264,6 +264,19 @@
             margin-top: 2.8%;
             margin-left: 36.5%;
         }
+        &.bubble{
+            width: 5%;
+            margin-top: -15.8%;
+            margin-left: -16.5%;
+            &.bubble-2{
+                margin-top: -12.8%;
+                margin-left: -7.5%;
+            }
+            &.bubble-3{
+                margin-top: -14.8%;
+                margin-left: -20.5%;
+            }
+        }
         &.trigger-fly{
             margin-top: -4%;
             margin-left: 25.5%;

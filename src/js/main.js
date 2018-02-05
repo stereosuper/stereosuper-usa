@@ -38,9 +38,9 @@ $(function(){
     }
 
     animFrogEye(frog, frogEye, frogPupil, frogThroat, rectVisu, contentRectVisu, fly, triggerFly);
-    // animBubble(bubble1, 5.4);
-    // animBubble(bubble2, 6);
-    // animBubble(bubble3, 9);
+    animBubble(bubble1, 5.4);
+    animBubble(bubble2, 6.1);
+    animBubble(bubble3, 9.3);
     recipe(isMobile.any);
     animRefs($('.reference'));
     gyro($('#baseline, #contact'));

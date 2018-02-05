@@ -39,7 +39,7 @@ module.exports = function(sprite, delay){
         TweenLite.set(elemToRound, {width: 2*Math.round(elemToRound.width()/2), height: 2*Math.round(elemToRound.height()/2)});
     }
     function updateResize(){
-        roundElem(frog);
+        roundElem(sprite);
     }
 
     animateSprites();
