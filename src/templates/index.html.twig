@@ -1,5 +1,5 @@
 {% extends 'layout/layout.html.twig' %}
-
+{% block lang %}fr-FR{% endblock %}
 {% block body_class %}cuisiner{% endblock %}
 
 {% block content %}
@@ -11,7 +11,7 @@
             fr
         </span><span class='slash'>
             /
-        </span><a href='#' title='US version'>
+        </span><a href='/cooking.html' hreflang="en-US" title='US version'>
             us
         </a>
     </div>

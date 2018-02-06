@@ -161,7 +161,7 @@ a{
     color: $white;
     transition: $transition;
     &:focus, &:hover{
-        color: rgba($white, 0.8);
+        color: $white;
     }
     &:focus{
         outline: 0;
@@ -258,7 +258,7 @@ a{
         font-size: 1.6rem;
     }
     h1{
-        font-size: 4rem;
+        font-size: 8.5rem;
     }
 }
 @media (max-width: $phone){
@@ -266,6 +266,12 @@ a{
         font-size: 1.4rem;
     }
     h1{
-        font-size: 3.5rem;
+        font-size: 6.5rem;
+    }
+}
+
+@media (max-width: $phone-small){
+    h1{
+        font-size: 4rem;
     }
 }

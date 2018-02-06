@@ -107,7 +107,7 @@ module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, f
                 TweenLite.set(fly, {opacity: 0});
                 flyActive = false;
                 animgorge.restart();
-                TweenLite.delayedCall(2, function(){
+                TweenLite.delayedCall(0.2, function(){
                     rectVisu.removeClass('no-cursor');
                 });
             }

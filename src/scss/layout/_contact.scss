@@ -13,7 +13,7 @@
             left: 50%;
             max-width: none;
             width: auto;
-            height: 70%;
+            height: 55%;
             width: auto;
             transform: translate3d(-50%, 0, 0);
         }
@@ -22,6 +22,7 @@
             width: calc(100% + 15px);
             max-width: none;
             height: auto;
+            margin-left: -50px;
         }
     }
     .txt{
@@ -31,7 +32,7 @@
     .rect-visu{
         position: absolute;
         top: 20px;
-        right: -90px;
+        right: -60px;
         bottom: 20px;
         left: -50px;
         transform: rotate(3deg);
@@ -45,8 +46,8 @@
 
 .wrapper-bg{
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 30px;
+    left: -40px;
     height: 100%;
     width: 100%;
 }
@@ -57,8 +58,6 @@
         padding-left: 10%;
         .visu{
             width: 40%;
-            // max-width: 200px;
-            // margin: 0 auto;
         }
         .txt{
             width: 50%;
@@ -77,11 +76,17 @@
             width: 90%;
             max-width: 200px;
             margin: 0 auto;
+            .illus{
+                margin-left:0;
+            }
         }
         .txt{
             max-width: 350px;
             width: 90%;
             margin: -20px auto 0;
         }
+    }
+    .wrapper-bg{
+        left: 0;
     }
 }

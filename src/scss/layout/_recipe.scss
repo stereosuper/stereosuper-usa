@@ -601,3 +601,24 @@
         }
     }
 }
+
+@media (max-width: 360px){
+    .wrapper-ingredients, .is-mobile .wrapper-ingredients{
+        width: 270px;
+    }
+    .ingredients{
+        width: 270px;
+    }
+    .ingredients-title h3{
+        font-size: 3.2rem;
+    }
+    .ingredient-wrapper-img{
+        height: 115px;
+    }
+    .mode-op h3{
+        padding: 0 30px;
+    }
+    .meo {
+        padding: 0 30px;
+    }
+}

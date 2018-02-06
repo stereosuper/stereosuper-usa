@@ -108,7 +108,40 @@
         }
         &.icon-shirt{
 			width: 25px;
-			height: 19px;
+			height: 26px;
 		}
 	}
+}
+
+@media (max-width: $phone){
+    #logo{
+        font-size: 1.4rem;
+        .icon{
+            width: 25px;
+            height: 25px;
+        }
+    }
+    .header-right{
+        &:after, &:before{
+            left: 2px;
+        }
+        .middle{
+            margin : 0 0 5px;
+            width: 80px;
+        }
+        .icon{
+            &.icon-frog{
+                width: 23px;
+                height: 16px;
+            }
+            &.icon-hearts{
+                width: 24px;
+                height: 22px;
+            }
+            &.icon-shirt{
+                width: 21px;
+                height: 26px;
+            }
+        }
+    }
 }
