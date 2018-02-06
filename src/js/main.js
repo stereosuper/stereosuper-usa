@@ -6,7 +6,7 @@ var isMobile = require('ismobilejs');
 // require('gsap');
 require('gsap/CSSPlugin');
 var TweenLite = require('gsap/TweenLite');
-
+require('gsap/ScrollToPlugin');
 
 $(function(){
 
@@ -42,7 +42,7 @@ $(function(){
     animBubble(bubble2, 6.1);
     animBubble(bubble3, 9.3);
     recipe(isMobile.any);
-    //animRefs($('.reference'));
+    animRefs($('.reference'));
     gyro($('#baseline, #contact'));
 
     $('#contactLink').on('mouseenter', function(event){
@@ -51,6 +51,15 @@ $(function(){
         TweenLite.to($('#contactRect'), 0.1, {scale: 1, ease: Power1.easeInOut});
     });
 
+
+    $('#toRecipe').on('click', function(e){
+        e.preventDefault();
+        TweenMax.to(window, 0.3, {scrollTo: '#recipe', offsetY:50});
+    });
+    $('#hashtag').on('click', function(e){
+        e.preventDefault();
+        TweenMax.to(window, 0.3, {scrollTo: '#contact', offsetY:50});
+    });
 
     isMobile.any ? body.addClass('is-mobile') : body.addClass('is-desktop');
 
