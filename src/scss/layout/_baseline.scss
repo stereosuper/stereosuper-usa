@@ -135,6 +135,13 @@
         transform: translate3d(-50%, -50%, 0) rotate(18deg);
     }
 }
+.wrapper-bubble{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 .frog-throat{
     display: block;
     width: 100%;

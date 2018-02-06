@@ -78,6 +78,17 @@
         &:nth-child(4){
             letter-spacing: 8px;
         }
+        .en & {
+            &:first-child{
+                letter-spacing: 12.9px;
+            }
+            &:nth-child(3){
+                letter-spacing: 12.7px;
+            }
+            &:nth-child(4){
+                letter-spacing: 12px;
+            }
+        }
     }
 }
 
