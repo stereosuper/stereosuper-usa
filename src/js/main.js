@@ -42,7 +42,7 @@ $(function(){
     animBubble(bubble2, 6.1);
     animBubble(bubble3, 9.3);
     recipe(isMobile.any);
-    animRefs($('.reference'));
+    //animRefs($('.reference'));
     gyro($('#baseline, #contact'));
 
     $('#contactLink').on('mouseenter', function(event){
