@@ -22,7 +22,7 @@
             width: calc(100% + 15px);
             max-width: none;
             height: auto;
-            margin-left: -50px;
+            margin-left: -60px;
         }
     }
     .txt{
@@ -32,9 +32,9 @@
     .rect-visu{
         position: absolute;
         top: 20px;
-        right: -60px;
+        right: -50px;
         bottom: 20px;
-        left: -50px;
+        left: -60px;
         transform: rotate(3deg);
     }
     .content-rect{
@@ -47,7 +47,7 @@
 .wrapper-bg{
     position: absolute;
     top: 30px;
-    left: -40px;
+    left: -50px;
     height: 100%;
     width: 100%;
 }
