@@ -13,7 +13,7 @@ $(function(){
     window.requestAnimFrame = require('./requestAnimFrame.js');
     const throttle = require('./throttle.js');
     const noTransition = require('./noTransition.js');
-    const animFrogEye = require('./animFrogEye.js');
+    const animFrog = require('./animFrog.js');
     const animBubble = require('./animBubble.js');
     const recipe = require('./recipe.js');
     const gyro = require('./gyro.js');
@@ -37,7 +37,7 @@ $(function(){
 
     }
 
-    animFrogEye(visuFrog);
+    animFrog(visuFrog);
     animBubble(bubble1, 5.4);
     animBubble(bubble2, 6.1);
     animBubble(bubble3, 9.3);
