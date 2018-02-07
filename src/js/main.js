@@ -22,7 +22,7 @@ $(function(){
     var body = $('body');
     // window.outerWidth returns the window width including the scroll, but it's not working with $(window).outerWidth
     var windowWidth = window.outerWidth, windowHeight = $(window).height();
-    const frog = $('#frog'), frogEye = $('#frogEye'), frogPupil = $('#frogPupil'), frogThroat = $('#frogThroat'), rectVisu = $('#rectVisu'), contentRectVisu = $('#contentRectVisu'), fly = $('#fly'), triggerFly = $('#triggerFly');
+    const visuFrog = $('#visuFrog');
     const bubble1 = $('#bubble1');
     const bubble2 = $('#bubble2');
     const bubble3 = $('#bubble3');
@@ -37,7 +37,7 @@ $(function(){
 
     }
 
-    animFrogEye(frog, frogEye, frogPupil, frogThroat, rectVisu, contentRectVisu, fly, triggerFly);
+    animFrogEye(visuFrog);
     animBubble(bubble1, 5.4);
     animBubble(bubble2, 6.1);
     animBubble(bubble3, 9.3);
