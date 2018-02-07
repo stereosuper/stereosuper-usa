@@ -4,12 +4,12 @@ const $ = require('jquery-slim');
 const isMobile = require('ismobilejs');
 
 require('gsap');
+require('gsap/scrollToPlugin');
 
 $(function(){
 
     window.requestAnimFrame = require('./requestAnimFrame.js');
     const throttle = require('./throttle.js');
-    const noTransition = require('./noTransition.js');
     const animFrog = require('./animFrog.js');
     const animBubble = require('./animBubble.js');
     const recipe = require('./recipe.js');
