@@ -1,12 +1,9 @@
 'use strict';
 
-var $ = require('jquery-slim');
-var isMobile = require('ismobilejs');
+const $ = require('jquery-slim');
+const isMobile = require('ismobilejs');
 
-// require('gsap');
-require('gsap/CSSPlugin');
-var TweenLite = require('gsap/TweenLite');
-require('gsap/ScrollToPlugin');
+require('gsap');
 
 $(function(){
 
@@ -46,9 +43,9 @@ $(function(){
     gyro($('#baseline, #contact'));
 
     $('#contactLink').on('mouseenter', function(event){
-        TweenLite.to($('#contactRect'), 0.6, {scale: 0.95, ease: Elastic.easeOut.config(1, 0.2)});
+        TweenMax.to($('#contactRect'), 0.6, {scale: 0.95, ease: Elastic.easeOut.config(1, 0.2)});
     }).on('mouseleave', function(event){
-        TweenLite.to($('#contactRect'), 0.1, {scale: 1, ease: Power1.easeInOut});
+        TweenMax.to($('#contactRect'), 0.1, {scale: 1, ease: Power1.easeInOut});
     });
 
 

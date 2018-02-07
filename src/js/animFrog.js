@@ -1,6 +1,6 @@
-var $ = require('jquery-slim');
+const $ = require('jquery-slim');
 
-var throttle = require('./throttle.js');
+const throttle = require('./throttle.js');
 window.requestAnimFrame = require('./requestAnimFrame.js');
 
 require('gsap');
