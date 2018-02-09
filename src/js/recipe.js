@@ -2,8 +2,7 @@ const $ = require('jquery-slim');
 
 const throttle = require('./throttle.js');
 
-require('gsap/CSSPlugin');
-const TweenLite = require('gsap/TweenLite');
+require('gsap');
 
 module.exports = function(isMobile){
     const recipe = $('#recipe');

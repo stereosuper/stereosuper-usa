@@ -4,10 +4,7 @@ var $ = require('jquery-slim');
 var throttle = require('./throttle.js');
 window.requestAnimFrame = require('./requestAnimFrame.js');
 
-require('gsap/CSSPlugin');
-require('gsap/EasePack');
-var TweenLite = require('gsap/TweenLite');
-var TimelineMax = require('gsap/TimelineMax');
+require('gsap');
 const mapRange = require('./mapRange');
 
 module.exports = function(sprite, delay){
@@ -35,8 +32,10 @@ module.exports = function(sprite, delay){
     }
 
     function roundElem(elemToRound){
-        TweenLite.set(elemToRound, {clearProps: 'width, height'});
-        TweenLite.set(elemToRound, {width: 2*Math.round(elemToRound.width()/2), height: 2*Math.round(elemToRound.height()/2)});
+        TweenMax.set(elemToRound, {clearProps: 'width, height', onCompleteScope: elemToRound, onComplete: function(){
+            const elemBounding = this[0].getBoundingClientRect();
+            TweenMax.set(this, {width: 2*Math.round(elemBounding.width/2), height: 2*Math.round(elemBounding.height/2)});
+        }});
     }
     function updateResize(){
         roundElem(sprite);

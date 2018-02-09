@@ -1,6 +1,6 @@
 const $ = require('jquery-slim');
-const TweenLite = require('gsap/TweenLite');
-const mapRange = require('./mapRange')
+require('gsap');
+const mapRange = require('./mapRange');
 window.requestAnimFrame = require('./requestAnimFrame.js');
 
 module.exports = function(scene){
@@ -40,12 +40,12 @@ module.exports = function(scene){
         
 
         if (n.gamma > 75 || n.gamma < -75 || n.beta > 75 || n.beta < -75) {
-            TweenLite.to(layers, 0.2, {x: 0, y: 0, ease: Power2.easeInOut})
+            TweenMax.to(layers, 0.2, {x: 0, y: 0, ease: Power2.easeInOut})
         }else{
             layers.each(function(){
                 const x = (n.gamma/10) * ($(this).data('gyro') * 4);
                 const y = (n.beta/10) * ($(this).data('gyro') * 4);
-                TweenLite.to($(this), 0.1, {x: x, y: y, ease: Power2.easeInOut})
+                TweenMax.to($(this), 0.1, {x: x, y: y, ease: Power2.easeInOut})
             });
         }
     }

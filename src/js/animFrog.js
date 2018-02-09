@@ -1,18 +1,15 @@
-var $ = require('jquery-slim');
+const $ = require('jquery-slim');
 
-var throttle = require('./throttle.js');
+const throttle = require('./throttle.js');
 window.requestAnimFrame = require('./requestAnimFrame.js');
 
-require('gsap/CSSPlugin');
-require('gsap/EasePack');
-var TweenLite = require('gsap/TweenLite');
-var TimelineMax = require('gsap/TimelineMax');
+require('gsap');
 const mapRange = require('./mapRange');
 
-module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, fly, triggerFly){
-    if (!frog.length || !eye.length || !pupil.length || !throat.length || !rectVisu.length || !fly.length || !triggerFly.length) return;
+module.exports = function(visuFrog){
+    if (!visuFrog.length) return;
+    const frog = $('#frog'), eye = $('#frogEye'), pupil = $('#frogPupil'), throat = $('#frogThroat'), rectVisu = $('#rectVisu'), contentRectVisu = $('#contentRectVisu'), fly = $('#fly'), triggerFly = $('#triggerFly');
 
-    const contentRect = rectVisu.find('.content-rect');
     const horizontal = {
         size:  function($el) { return $el.width(); },
         position: function($el) { return $el.position().left; },
@@ -43,28 +40,28 @@ module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, f
     }
 
     function calculateDistance(elem, event){
+        const elemBounding = elem[0].getBoundingClientRect(), elemOffset = elem.offset();
         rectVisuSize = rectVisu.outerWidth();
-        distanceFromEye = Math.floor(Math.sqrt(Math.pow(event.pageX - (elem.offset().left+(elem.width()/2)), 2) + Math.pow(event.pageY - (elem.offset().top+(elem.height()/2)), 2)));
+        distanceFromEye = (Math.hypot(event.pageX - (elemOffset.left+(elemBounding.width/2)), event.pageY - (elemOffset.top+(elemBounding.height/2)))) | 0;
         return mapRange(distanceFromEye, 0, rectVisuSize, 1.8, 1);
     }
     function moveFly(event){
-        flyX = Math.round(event.pageX - rectVisu.offset().left - flyWidth);
-        flyY = Math.round(event.pageY - rectVisu.offset().top - flyHeight);
-
-        newX = flyX - Math.round(rectVisu.width()/2);
-        newY = flyY - Math.round(rectVisu.height()/2);
+        const rectVisuBounding = rectVisu[0].getBoundingClientRect(), rectVisuOffset = rectVisu.offset();
         
+        // | 0 = Math.floor()
+        flyX = (event.pageX - rectVisuOffset.left - flyWidth) | 0;
+        flyY = (event.pageY - rectVisuOffset.top - flyHeight) | 0;
+
+        newX = flyX - (rectVisuBounding.width/2) | 0;
+        newY = flyY - (rectVisuBounding.height/2) | 0;
+
         // calcul
-        if(newX === oldX && newY === oldY ){
-            angleDeg = oldAngleDeg;
-        }else{
-            angleDeg = Math.atan2(newY - oldY, newX - oldX) * 180 / Math.PI;
-        }
+        angleDeg = (newX === oldX && newY === oldY) ? oldAngleDeg : Math.atan2(newY - oldY, newX - oldX) * 180 / Math.PI;
 
         oldX = newX;
         oldY = newY;
         oldAngleDeg = angleDeg;
-        TweenLite.set(fly, {
+        TweenMax.set(fly, {
             x: flyX,
             y: flyY,
             rotation: angleDeg
@@ -85,17 +82,15 @@ module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, f
         rows = 4;
         gridWidth = 33.333333;
         gridHeight = 33.333333;
-        //var interval = 0.5; //for testing
+        // interval = 0.5; //for testing
         interval = 0.03;
 
-
-
-        tlFrog = new TimelineLite({paused: true, onComplete: reinitFrog});
-        var count = 0;
-        for (var r = 0; r < rows; r++){
-            for (var c = 0; c < cols; c++){ 
-                var xpos = c * gridWidth;
-                var ypos = r * gridHeight;
+        tlFrog = new TimelineMax({paused: true, onComplete: reinitFrog});
+        let count = 0, xpos, ypos;
+        for (let r = 0; r < rows; r++){
+            for (let c = 0; c < cols; c++){ 
+                xpos = c * gridWidth;
+                ypos = r * gridHeight;
                 tlFrog.set(frog, {backgroundPosition: xpos + '% ' +  ypos + '%'}, count * interval);
                 count++;
             }
@@ -104,10 +99,10 @@ module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, f
         triggerFly.on('mouseenter', function(event){
             if(flyActive){
                 tlFrog.play();
-                TweenLite.set(fly, {opacity: 0});
+                TweenMax.set(fly, {opacity: 0});
                 flyActive = false;
                 animgorge.restart();
-                TweenLite.delayedCall(0.2, function(){
+                TweenMax.delayedCall(0.2, function(){
                     rectVisu.removeClass('no-cursor');
                 });
             }
@@ -115,8 +110,10 @@ module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, f
     }
 
     function roundElem(elemToRound){
-        TweenLite.set(elemToRound, {clearProps: 'width, height'});
-        TweenLite.set(elemToRound, {width: 2*Math.round(elemToRound.width()/2), height: 2*Math.round(elemToRound.height()/2)});
+        TweenMax.set(elemToRound, {clearProps: 'width, height', onCompleteScope: elemToRound, onComplete: function(){
+            const elemBounding = this[0].getBoundingClientRect();
+            TweenMax.set(this, {width: 2*Math.round(elemBounding.width/2), height: 2*Math.round(elemBounding.height/2)});
+        }});
     }
 
     function updateResize(){
@@ -128,24 +125,24 @@ module.exports = function(frog, eye, pupil, throat, rectVisu, contentRectVisu, f
     roundElem(frog);
     
     rectVisu.on('mousemove', function(event){
-        TweenLite.set(pupil, {
+        TweenMax.set(pupil, {
             x: coordinate(pupil, eye, event, horizontal),
             y: coordinate(pupil, eye, event, vertical),
             scaleX: calculateDistance(eye, event)
         });
         moveFly(event);
-    }).on('mouseenter', function(event){
-        TweenLite.to(contentRectVisu, 0.6, {scale: 0.97, ease: Elastic.easeOut.config(1, 0.2)});
-        TweenLite.set(fly, {opacity: 1});
+    }).on('mouseenter', function(){
+        TweenMax.to(contentRectVisu, 0.6, {scale: 0.97, ease: Elastic.easeOut.config(1, 0.2)});
+        TweenMax.set(fly, {opacity: 1});
         $(this).addClass('no-cursor');
-    }).on('mouseleave', function(event){
-        TweenLite.to(contentRectVisu, 0.1, {scale: 1, ease: Power1.easeInOut});
-        TweenLite.to(pupil, 0.1, {
+    }).on('mouseleave', function(){
+        TweenMax.to(contentRectVisu, 0.1, {scale: 1, ease: Power1.easeInOut});
+        TweenMax.to(pupil, 0.1, {
             x: '70%',
             y: 0,
             scaleX: 1
         });
-        TweenLite.set(fly, {opacity: 0});
+        TweenMax.set(fly, {opacity: 0});
         flyActive = true;
         $(this).removeClass('no-cursor');
     });
