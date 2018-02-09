@@ -294,16 +294,19 @@
 .honey, .ready{
     position: absolute;
     font-size: 1.5rem;
-    top: 33%;
-    left: 27%;
+    top: 37%;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: $carrosserie;
     letter-spacing: 1.4px;
     color: $white;
 }
+.honey{
+    margin-left: -21%;
+}
 
 .ready{
-    right: 22%;
-    left: auto;
+    margin-left: 22%;
 }
 
 .et-voila{
@@ -311,12 +314,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 50px;
+    width: 48%;
+    margin: 0 50px;
     img{
         max-width: 400px;
     }
     .music{
         position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        height: 100%;
+        align-items: center;
+        width: 100%;
+        > svg{
+            width: 100%;
+        }
     }
 }
 
@@ -448,6 +461,12 @@
             max-width: 300px;
         }
     }
+    .ready{
+        margin-left: 25%;
+    }
+    .honey{
+        margin-left: -25%;
+    }
 }
 
 @media (max-width: $tablet){
@@ -510,7 +529,7 @@
     }
     .voila-body{
         flex-wrap: wrap;
-
+        justify-content: center;
         .response{
             width: 40%;
             padding: 0;
@@ -530,14 +549,33 @@
             justify-content: space-between;
         }
     }
+    .big-voila{
+        font-size: 7rem;
+    }
     .et-voila{
         width: 100%;
+        max-width: 360px;
         order: 1;
-        margin: 50px 0 0 0;
-        display: block;
+        margin: 100px 0 60px;
         > img{
             display: block;
             margin: 0 auto;
+        }
+        .honey, .ready{
+            top: 19%;
+            font-size: 1.3rem;
+            letter-spacing: 0;
+        }
+        .honey{
+            margin-left: -24%;
+        }
+        .ready{
+            margin-left: 23%;
+        }
+        .music{
+            top: 0;
+            > svg{
+            }
         }
     }
     .voila-footer{
@@ -577,10 +615,14 @@
             flex-direction: column;
             padding: 50px 50px 50px 0;
         }
+        .big-voila{
+            font-size: 5rem;
+        }
         .et-voila{
-            img {
-                max-width: 100%;
-            }
+            max-width: 280px;
+        }
+        .honey, .ready{
+            font-size: 1rem;
         }
         .response{
             width: 100%;
@@ -603,6 +645,16 @@
     .ingredients{
         width: 300px;
     }
+    
+    .voila-body{
+        .et-voila{
+            max-width: 220px;
+        }
+        .honey{
+            margin-left: -26%;
+        }
+    }
+    
     .ingredient-wrapper-img{
         height: 125px;
     }
@@ -625,6 +677,11 @@
     }
     .ingredient-wrapper-img{
         height: 115px;
+    }
+    .voila-body{
+        .et-voila{
+            max-width: 190px;
+        }
     }
     .mode-op h3{
         padding: 0 30px;

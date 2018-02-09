@@ -78,6 +78,11 @@
         background-color: white;
         transform-origin: 37.5px 1px;
     }
+    &.alone{
+        &:before, &:after{
+            content: none;
+        }
+    }
     &:before{
         transform: rotate(45deg);
     }
