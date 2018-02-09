@@ -11,6 +11,7 @@ $(function(){
     window.requestAnimFrame = require('./requestAnimFrame.js');
     const throttle = require('./throttle.js');
     const animFrog = require('./animFrog.js');
+    const etVoilaMobile = require('./etVoilaMobile.js');
     const animBubble = require('./animBubble.js');
     const recipe = require('./recipe.js');
     const gyro = require('./gyro.js');
@@ -35,6 +36,7 @@ $(function(){
     }
 
     animFrog(visuFrog);
+    etVoilaMobile($('#voila'));
     animBubble(bubble1, 5.4);
     animBubble(bubble2, 6.1);
     animBubble(bubble3, 9.3);

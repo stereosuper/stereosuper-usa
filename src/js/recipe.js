@@ -1,8 +1,11 @@
+import { TimelineMax, Power2, TweenMax } from 'gsap';
+
 const $ = require('jquery-slim');
 
 const throttle = require('./throttle.js');
 
 require('gsap');
+const tl = require('./etVoila');
 
 module.exports = function(isMobile){
     const recipe = $('#recipe');
@@ -11,6 +14,7 @@ module.exports = function(isMobile){
     const sheet2 = $('.container-sheet[data-sheet="2"]');
     const sheet3 = $('.container-sheet[data-sheet="3"]');
     const sheet4 = $('.container-sheet[data-sheet="4"]');
+    const voila = $('#voila');
 
     let maxHeight = sheet2.height();
 
@@ -29,12 +33,19 @@ module.exports = function(isMobile){
     let viewportTop = $(window).scrollTop();
     let offsetTop = (windowHeight - maxHeight)/2;
 
+    const etVoila = () => {
+        tl(voila).play(0);
+    }
+
     const releaseSheet = (et, ot, vt) => {
         sheets.each(function(i) {
             const actualTiming = TIMING[i];
             if(vt >= et - ot + actualTiming){
                 if( lastRelease < i+1 )lastRelease++;
-                if($(this).hasClass('stuck') && !$(this).hasClass('release')) $(this).removeClass('stuck').addClass('release');
+                if($(this).hasClass('stuck') && !$(this).hasClass('release')){
+                    $(this).removeClass('stuck').addClass('release');
+                    if(i === 3) etVoila();
+                }
             }else{
                 if( lastRelease === i+1 ){
                     lastRelease--;
