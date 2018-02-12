@@ -6,6 +6,12 @@ const isMobile = require('ismobilejs');
 require('gsap');
 require('gsap/scrollToPlugin');
 
+global.jQuery = $;
+
+const imagesLoaded = require('imagesloaded');
+// provide jQuery argument
+imagesLoaded.makeJQueryPlugin( $ );
+
 $(function(){
 
     window.requestAnimFrame = require('./requestAnimFrame.js');
@@ -24,6 +30,18 @@ $(function(){
     const bubble1 = $('#bubble1');
     const bubble2 = $('#bubble2');
     const bubble3 = $('#bubble3');
+    const baseline = $('#baseline');
+
+    const allLoaded = () => {
+        console.log('all loaded');
+        
+    }
+
+    if(baseline.length){
+        baseline.imagesLoaded( function() {
+            allLoaded();
+        });
+    }
 
 
     function resizeHandler(){
@@ -44,9 +62,9 @@ $(function(){
     animRefs($('.reference'));
     gyro($('#baseline, #contact'), isMobile.any);
 
-    $('#contactLink').on('mouseenter', function(event){
+    $('#contactLink').on('mouseenter', function(){
         TweenMax.to($('#contactRect'), 0.6, {scale: 0.95, ease: Elastic.easeOut.config(1, 0.2)});
-    }).on('mouseleave', function(event){
+    }).on('mouseleave', function(){
         TweenMax.to($('#contactRect'), 0.1, {scale: 1, ease: Power1.easeInOut});
     });
 

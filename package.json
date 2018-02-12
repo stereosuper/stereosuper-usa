@@ -26,6 +26,7 @@
     "gulp-twig": "^1.2.0",
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^5.0.0",
+    "imagesloaded": "^4.1.4",
     "ismobilejs": "^0.4.1",
     "jquery-slim": "^3.0.0",
     "path": "^0.12.7",
