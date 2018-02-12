@@ -133,6 +133,11 @@
         margin-top: 2.3%;
         margin-left: 19%;
         transform: translate3d(-50%, -50%, 0) rotate(18deg);
+        .is-mobile &{
+            width: 3%;          
+            transform: translate3d(-50%, -50%, 0) rotate(0deg);
+            margin-left: 28.5% !important;
+        }
     }
 }
 .wrapper-bubble{
@@ -161,8 +166,8 @@
     top: 0;
     left: 0;
     display: block;
-    width: 20px;
-    height: 27px;
+    width: 3%;
+    height: 7%;
     margin: -13px 0 0 -20px;
     background: url('../layoutImg/fly.gif') no-repeat 0 0;
     background-size: 100% auto;

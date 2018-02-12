@@ -35,14 +35,14 @@ $(function(){
 
     }
 
-    animFrog(visuFrog);
+    animFrog(visuFrog, isMobile.any);
     etVoilaMobile($('#voila'));
     animBubble(bubble1, 5.4);
     animBubble(bubble2, 6.1);
     animBubble(bubble3, 9.3);
     recipe(isMobile.any);
     animRefs($('.reference'));
-    gyro($('#baseline, #contact'));
+    gyro($('#baseline, #contact'), isMobile.any);
 
     $('#contactLink').on('mouseenter', function(event){
         TweenMax.to($('#contactRect'), 0.6, {scale: 0.95, ease: Elastic.easeOut.config(1, 0.2)});

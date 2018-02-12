@@ -331,6 +331,15 @@
     justify-content: center;
     width: 48%;
     margin: 0 50px;
+    &.en{
+        .honey{
+            margin-left: 0;
+            text-align: center;
+        }
+        .big-voila{
+            margin-top: 120px;
+        }
+    }
     img{
         max-width: 400px;
     }
@@ -578,6 +587,11 @@
         > img{
             display: block;
             margin: 0 auto;
+        }
+        &.en{
+            .big-voila{
+                margin-top: 90px;
+            }
         }
         .honey, .ready{
             top: 19%;

@@ -5,8 +5,9 @@ window.requestAnimFrame = require('./requestAnimFrame.js');
 
 require('gsap');
 const mapRange = require('./mapRange');
+const animSlurp = require('./animSlurp');
 
-module.exports = function(visuFrog){
+module.exports = function(visuFrog, isMobile){
     if (!visuFrog.length) return;
     const frog = $('#frog'), eye = $('#frogEye'), pupil = $('#frogPupil'), throat = $('#frogThroat'), rectVisu = $('#rectVisu'), contentRectVisu = $('#contentRectVisu'), fly = $('#fly'), triggerFly = $('#triggerFly');
 
@@ -73,28 +74,9 @@ module.exports = function(visuFrog){
         animgorge.to(throat, 0.5, {scale: 2, x: '-35%', ease: Power2.easeOut});
     }
 
-    function reinitFrog(){
-        tlFrog.pause(0);
-    }
-
     function animateSprites(){
-        cols = 4;
-        rows = 4;
-        gridWidth = 33.333333;
-        gridHeight = 33.333333;
-        // interval = 0.5; //for testing
-        interval = 0.03;
-
-        tlFrog = new TimelineMax({paused: true, onComplete: reinitFrog});
-        let count = 0, xpos, ypos;
-        for (let r = 0; r < rows; r++){
-            for (let c = 0; c < cols; c++){ 
-                xpos = c * gridWidth;
-                ypos = r * gridHeight;
-                tlFrog.set(frog, {backgroundPosition: xpos + '% ' +  ypos + '%'}, count * interval);
-                count++;
-            }
-        }
+        
+        tlFrog = animSlurp(frog);
 
         triggerFly.on('mouseenter', function(event){
             if(flyActive){
@@ -123,29 +105,31 @@ module.exports = function(visuFrog){
     animateSprites();
     animThroat();
     roundElem(frog);
-    
-    rectVisu.on('mousemove', function(event){
-        TweenMax.set(pupil, {
-            x: coordinate(pupil, eye, event, horizontal),
-            y: coordinate(pupil, eye, event, vertical),
-            scaleX: calculateDistance(eye, event)
+
+    if(!isMobile){
+        rectVisu.on('mousemove', function(event){
+            TweenMax.set(pupil, {
+                x: coordinate(pupil, eye, event, horizontal),
+                y: coordinate(pupil, eye, event, vertical),
+                scaleX: calculateDistance(eye, event)
+            });
+            moveFly(event);
+        }).on('mouseenter', function(){
+            TweenMax.to(contentRectVisu, 0.6, {scale: 0.97, ease: Elastic.easeOut.config(1, 0.2)});
+            TweenMax.set(fly, {opacity: 1});
+            $(this).addClass('no-cursor');
+        }).on('mouseleave', function(){
+            TweenMax.to(contentRectVisu, 0.1, {scale: 1, ease: Power1.easeInOut});
+            TweenMax.to(pupil, 0.1, {
+                x: '70%',
+                y: 0,
+                scaleX: 1
+            });
+            TweenMax.set(fly, {opacity: 0});
+            flyActive = true;
+            $(this).removeClass('no-cursor');
         });
-        moveFly(event);
-    }).on('mouseenter', function(){
-        TweenMax.to(contentRectVisu, 0.6, {scale: 0.97, ease: Elastic.easeOut.config(1, 0.2)});
-        TweenMax.set(fly, {opacity: 1});
-        $(this).addClass('no-cursor');
-    }).on('mouseleave', function(){
-        TweenMax.to(contentRectVisu, 0.1, {scale: 1, ease: Power1.easeInOut});
-        TweenMax.to(pupil, 0.1, {
-            x: '70%',
-            y: 0,
-            scaleX: 1
-        });
-        TweenMax.set(fly, {opacity: 0});
-        flyActive = true;
-        $(this).removeClass('no-cursor');
-    });
+    }
 
     var resizeHandler = throttle(function(){
         requestAnimFrame(updateResize);

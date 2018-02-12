@@ -119,6 +119,9 @@
 }
 
 @media (max-width: $phone){
+    #header{
+        padding: 20px 0 20px;
+    }
     #logo{
         font-size: 1.4rem;
         .icon{
