@@ -7,9 +7,18 @@
     $secondary-dark: map-get($map, secondary-dark);
 
     .#{$theme}{
-        background: $primary;
+        background: black;        
+        &.on, .no-js &{
+            background: $primary;
+        }
+        .first-overlay{
+            background: $primary;
+        }
         .content-rect{
             background: $secondary;
+        }
+        .second-overlay{
+            background: $primary;
         }
         .hashtag{
             color: $primary-dark;

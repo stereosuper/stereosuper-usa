@@ -17,6 +17,14 @@
         transform-origin: 100% 50%;
         transform: rotate3d(0, 0, 1, 90deg);
     }
+    > .in-lateral{
+        transform: translateX(50px);
+        opacity: 0;
+        .no-js &{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
     a{
         font-family: $carrosserie;
     }

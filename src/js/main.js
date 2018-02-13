@@ -1,3 +1,5 @@
+import { Power4, TimelineMax } from 'gsap';
+
 'use strict';
 
 const $ = require('jquery-slim');
@@ -18,6 +20,7 @@ $(function(){
     const throttle = require('./throttle.js');
     const animFrog = require('./animFrog.js');
     const etVoilaMobile = require('./etVoilaMobile.js');
+    const frogJump = require('./frogJump.js');
     const animBubble = require('./animBubble.js');
     const recipe = require('./recipe.js');
     const gyro = require('./gyro.js');
@@ -31,17 +34,32 @@ $(function(){
     const bubble2 = $('#bubble2');
     const bubble3 = $('#bubble3');
     const baseline = $('#baseline');
+    const frogLink = $('#frogLink');
+    const condensed = frogLink.find('#iconFrog');
+    const extended = frogLink.find('#iconFrog2');
 
     const allLoaded = () => {
-        console.log('all loaded');
-        
-    }
+        const loading = new TimelineMax();
+        loading.to($('#firstO'), 1, {ease: Power4.easeInOut, scale: 1})
+        .set(visuFrog, {opacity: 1})
+        .to($('#secondO'), 1, {ease: Power4.easeInOut, scaleY: 0, transformOrigin:'center bottom'})
+        .to($('#baselineTxt'), 1, {ease: Power4.easeInOut, opacity: 1, y:0, delay: -1})
+        .to($('#headerLeft'), 1, {ease: Power4.easeInOut, opacity: 1, y:0, delay: -0.5})
+        .to($('#headerRight'), 1, {ease: Power4.easeInOut, opacity: 1, y:0, delay: -0.6})
+        .to($('#lateralLeft'), 1, {ease: Power4.easeInOut, opacity: 1, x:0, delay: -1})
+        .to($('#lateralRight'), 1, {ease: Power4.easeInOut, opacity: 1, x:0, delay: -1})
+        .set(body, {className: '+=on'})
+        .set($('#firstO'), {css:{ display: 'none'}})
+        .set($('#load'), {css:{ display: 'none'}});  
+    };
 
-    if(baseline.length){
-        baseline.imagesLoaded( function() {
-            allLoaded();
-        });
-    }
+    TweenMax.delayedCall(2, function(){
+        if(baseline.length){
+            baseline.imagesLoaded( function() {
+                allLoaded();
+            });
+        }
+    });
 
 
     function resizeHandler(){
@@ -50,9 +68,10 @@ $(function(){
     }
 
     function loadHandler(){
-
+        
     }
 
+    frogJump(condensed, extended);
     animFrog(visuFrog, isMobile.any);
     etVoilaMobile($('#voila'));
     animBubble(bubble1, 5.4);
@@ -87,8 +106,8 @@ $(function(){
         requestAnimFrame(resizeHandler);
     }, 60));
 
-    $(document).on('scroll', throttle(function(){
-
-    }, 60));
+    $(window ).on('beforeunload', function(){
+        $(window).scrollTop(0);
+    });
 
 });

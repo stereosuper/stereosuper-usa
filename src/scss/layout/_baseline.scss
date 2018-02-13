@@ -18,6 +18,10 @@
     }
     .visu{
         position: relative;
+        opacity: 0;
+        .no-js & {
+            opacity: 1;
+        }
         img{
             position: relative;
             width: 100%;
@@ -29,6 +33,12 @@
     .txt{
         position: relative;
         color: $grey;
+        opacity: 0;
+        transform: translateY(150px);
+        .no-js & {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
     .rect-visu, .wrapper-over-illus{
         position: absolute;
@@ -56,6 +66,17 @@
         left: 0;
         pointer-events: none;
     }
+    .second-overlay{
+        position: absolute;
+        top: -50px;
+        right: -120px;
+        bottom: -50px;
+        left: -120px;
+        transform: rotate(-2deg);
+        .no-js &{
+            display: none;
+        }
+    }
     .wrapper-trigger{
         position: absolute;
         top: -50px;
@@ -75,6 +96,16 @@
             transform: rotate(2deg);
         }
     }
+}
+.first-overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    backface-visibility: hidden;
+    transform: scaleY(0);
+    transform-origin: 0 0;
 }
 .elem-anim{
     position: absolute;

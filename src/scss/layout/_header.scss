@@ -61,12 +61,27 @@
 	}
 }
 
+.header-left{
+    opacity: 0;
+    transform: translateY(-20px);
+    .no-js &{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .header-right{
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 13px;
+    opacity: 0;
+    transform: translateY(-20px);
+    .no-js &{
+        opacity: 1;
+        transform: translateY(0);
+    }
     &:after, &:before{
         position: absolute;
         top: 12px;
@@ -102,10 +117,30 @@
             opacity: 0.4;
         }
     }
+    .frog-link{
+        position: relative;
+        display: inline-block;
+        height: 27px;
+        width: 26px;
+        transform-origin: 50% 50%;        
+        .icon{
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            &.on{
+                opacity: 1;
+            }
+        }
+    }
 	.icon{
 		&.icon-frog{
 			width: 28px;
 			height: 20px;
+        }
+        &.icon-frog2{
+			width: 26px;
+            height: 27px;
         }
         &.icon-hearts{
 			width: 24px;
