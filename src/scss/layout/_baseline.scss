@@ -69,9 +69,9 @@
     .second-overlay{
         position: absolute;
         top: -50px;
-        right: -120px;
+        right: -115px;
         bottom: -50px;
-        left: -120px;
+        left: -95px;
         transform: rotate(-2deg);
         .no-js &{
             display: none;
@@ -233,6 +233,12 @@
             bottom: -25px;
             left: -50px;
         }
+        .second-overlay{
+            top: -25px;
+            right: -65px;
+            bottom: -25px;
+            left: -45px;
+        }
         .wrapper-trigger{
             top: -25px;
             right: -50px;
@@ -256,6 +262,12 @@
             right: -30px;
             bottom: -30px;
             left: -30px;
+        }
+        .second-overlay{
+            top: -30px;
+            right: -45px;
+            bottom: -30px;
+            left: -25px;
         }
         .wrapper-trigger{
             top: -30px;
@@ -336,6 +348,12 @@
             bottom: -20px;
             left: -10px;
         }
+        .second-overlay{
+            top: -20px;
+            right: -20px;
+            bottom: -20px;
+            left: -15px;
+        }
         .wrapper-trigger{
             top: -20px;
             right: -10px;
@@ -348,5 +366,11 @@
                 left: 10px;
             }
         }
+    }
+}
+
+@media (max-width: $phone-small){
+    .wrapper-baseline{
+        padding: 130px 0 120px;
     }
 }
