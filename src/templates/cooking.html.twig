@@ -11,18 +11,23 @@
 
 {% block content %}
     <div class='lateral left'>
-        <a href='#' id='hashtag' class='hashtag'>#work<span>with</span>frenchies</a>
+        <div id='lateralLeft' class="in-lateral">
+           <a href='#' id='hashtag' class='hashtag'>#work<span>with</span>frenchies</a>        
+        </div>
     </div>
     <div class='lang lateral right'>
-        <a href='./' hreflang="fr-FR" title='French version'>
-            fr
-        </a><span class='slash'>
-            /
-        </span><span class='non-active'>
-            us
-        </span>
+        <div id='lateralRight' class="in-lateral">
+            <a href='/' hreflang="fr-FR" title='French version'>
+                fr
+            </a><span class='slash'>
+                /
+            </span><span class='non-active'>
+                us
+            </span>
+        </div>
     </div>
     <div class='wrapper-baseline'>
+        <div class="first-overlay" id='firstO'></div>
         <div class='container'>
             <div class='container-small container-baseline' id='baseline'>
                 <div class='visu' id='visuFrog'>
@@ -58,8 +63,9 @@
                             <span class='elem-anim trigger-fly' id='triggerFly'>
                         </div>
                     </div>
+                    <div id='secondO' class='second-overlay layer' data-gyro='2' ></div>
                 </div>
-                <div class='txt layer' data-gyro='1'>
+                <div id='baselineTxt' class='txt layer' data-gyro='1'>
                     <h1>Only the French can <span class='no-space'><span>cook</span><span class='small'>&nbsp;(right&nbsp;?)</span></span></h1>
                     <p>Is that why <strong>Stéréosuper and its tight group of Frenchies</strong> are so good at whipping up awesome visual identities and designing kick-ass sites and apps? Lucky for you, Stéréosuper goes all American dream and opens an office in Brooklyn.<a href='#' id='toRecipe' class='link'>Want to talk about it?</a></p>
                 </div>
@@ -239,5 +245,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="load" id='load'>
+        <svg class='icon stereo'><use xlink:href='#icon-stereo'/></svg>
+        <svg class='icon super'><use xlink:href='#icon-super'/></svg>
     </div>
 {% endblock content %}
