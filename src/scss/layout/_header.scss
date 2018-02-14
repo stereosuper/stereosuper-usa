@@ -172,11 +172,20 @@
             margin : 0 0 5px;
             width: 80px;
         }
+        .frog-link{
+            height: 21px;
+            width: 21px;
+        }
         .icon{
             &.icon-frog{
                 width: 23px;
                 height: 16px;
             }
+            &.icon-frog2{
+                width: 21px;
+                height: 21px;
+            }
+            
             &.icon-hearts{
                 width: 24px;
                 height: 22px;
