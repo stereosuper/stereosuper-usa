@@ -3,6 +3,10 @@
     height: 2840px;
     margin: 0 auto 170px;
     overflow: hidden;
+    opacity: 0;
+    .no-js &{
+        opacity: 1;
+    }
 }
 
 .container-sheet{

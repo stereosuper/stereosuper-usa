@@ -49,8 +49,9 @@ $(function(){
         .to($('#lateralLeft'), 1, {ease: Power4.easeInOut, opacity: 1, x:0, delay: -1})
         .to($('#lateralRight'), 1, {ease: Power4.easeInOut, opacity: 1, x:0, delay: -1})
         .set(body, {className: '+=on'})
-        .set($('#firstO'), {css:{ display: 'none'}})
-        .set($('#load'), {css:{ display: 'none'}});  
+        .set($('#firstO, #secondO'), {css:{ display: 'none'}})
+        .set($('#load'), {css:{ display: 'none'}})        
+        .to($('#recipe'), 1, {ease: Power4.easeInOut, opacity: 1, delay: -0.4, onComplete: readyHandler});
     };
 
     TweenMax.delayedCall(2, function(){
@@ -71,15 +72,19 @@ $(function(){
         
     }
 
-    frogJump(condensed, extended);
-    animFrog(visuFrog, isMobile.any);
-    etVoilaMobile($('#voila'));
-    animBubble(bubble1, 5.4);
-    animBubble(bubble2, 6.1);
-    animBubble(bubble3, 9.3);
+    function readyHandler(){
+        frogJump(condensed, extended);
+        animFrog(visuFrog, isMobile.any);
+        etVoilaMobile($('#voila'));
+        animBubble(bubble1, 5.4);
+        animBubble(bubble2, 6.1);
+        animBubble(bubble3, 9.3);
+        animRefs($('.reference'));
+        gyro($('#baseline, #contact'), isMobile.any);
+    }
+
     recipe(isMobile.any);
-    animRefs($('.reference'));
-    gyro($('#baseline, #contact'), isMobile.any);
+    
 
     $('#contactLink').on('mouseenter', function(){
         TweenMax.to($('#contactRect'), 0.6, {scale: 0.95, ease: Elastic.easeOut.config(1, 0.2)});
