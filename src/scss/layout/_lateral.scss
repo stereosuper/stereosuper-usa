@@ -8,12 +8,12 @@
     text-transform: uppercase;
     z-index: 2;
     &.left{
-        left: 25px;
+        left: 35px;
         transform-origin: 0 50%;
         transform: rotate3d(0, 0, 1, -90deg);
     }
     &.right{
-        right: 25px;
+        right: 35px;
         transform-origin: 100% 50%;
         transform: rotate3d(0, 0, 1, 90deg);
     }

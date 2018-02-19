@@ -58,7 +58,6 @@ $(function(){
 
     const CommonView = Barba.BaseView.extend({ namespace: 'common',
         onEnterCompleted: function(){
-            console.log('complete');
             const frogLink = $(this.container).find('#frogLink');
             const condensed = frogLink.find('#iconFrog');
             const extended = frogLink.find('#iconFrog2');
