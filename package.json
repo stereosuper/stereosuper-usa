@@ -8,6 +8,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^8.0.0",
+    "barba.js": "^1.0.0",
     "browser-sync": "^2.23.5",
     "browserify": "^15.2.0",
     "del": "^3.0.0",

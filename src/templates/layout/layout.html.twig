@@ -33,58 +33,68 @@
         {% endblock %}
     </head>
 
-    <body class='{% block body_class %}{% endblock %}'>
-        <header id='header' role='banner'>
-            <div class='container'>
-                <div class='container-small container-header'>
-                    <div id='headerLeft' class='header-left'>
-                        <a href='./' id='logo' title=''>
-                            <span class='zone-icon'>
-                                <svg class='icon stereo'><use xlink:href='#icon-stereo'/></svg>
-                                <svg class='icon super'><use xlink:href='#icon-super'/></svg>
+    <body id='barba-wrapper' class='off {% block body_class %}{% endblock %}'>
+        <div class="barba-container" data-namespace='{% block namespace %}{% endblock %}'>
+            <header id='header' role='banner'>
+                <div class='container'>
+                    <div class='container-small container-header'>
+                        <div id='headerLeft' class='header-left'>
+                            <a href='./' id='logo' title=''>
+                                <span class='zone-icon'>
+                                    <svg class='icon stereo'><use xlink:href='#icon-stereo'/></svg>
+                                    <svg class='icon super'><use xlink:href='#icon-super'/></svg>
+                                </span>
+                                <span><strong>Stéréo</strong>super</span>
+                            </a>
+                        </div>
+                        {# <nav class='header-right' role='navigation'>
+                            <div class='middle'>
+                                <span class='disable'>
+                                    <svg class='icon icon-shirt'><use xlink:href='#icon-shirt'></use></svg>
+                                </span>
+                                <span class='disable'>
+                                    <svg class='icon icon-hearts'><use xlink:href='#icon-hearts'></use></svg>
+                                </span>
+                            </div>
+                        </nav>
+                        <nav class='header-right' role='navigation'>
+                            <div class='middle'>
+                                <span class='disable'>
+                                    <svg class='icon icon-shirt'><use xlink:href='#icon-shirt'></use></svg>
+                                </span>
+                                <span class='disable'>
+                                    <svg class='icon icon-hearts'><use xlink:href='#icon-hearts'></use></svg>
+                                </span>
+                            </div>
+                            <span class='active'>
+                                <svg class='icon icon-frog'><use xlink:href='#icon-frog'></use></svg>
                             </span>
-                            <span><strong>Stéréo</strong>super</span>
-                        </a>
+                        </nav> #}
+                        <nav id='headerRight' class='header-right alone' role='navigation'>
+                            <span id='frogLink' class='active frog-link'>
+                                <svg id='iconFrog' class='icon icon-frog on'><use xlink:href='#icon-frog'></use></svg>
+                                <svg id='iconFrog2' class='icon icon-frog2'><use xlink:href='#icon-frog2'></use></svg>
+                            </span>
+                        </nav>
                     </div>
-                    {# <nav class='header-right' role='navigation'>
-                        <div class='middle'>
-                            <span class='disable'>
-                                <svg class='icon icon-shirt'><use xlink:href='#icon-shirt'></use></svg>
-                            </span>
-                            <span class='disable'>
-                                <svg class='icon icon-hearts'><use xlink:href='#icon-hearts'></use></svg>
-                            </span>
-                        </div>
-                    </nav>
-                    <nav class='header-right' role='navigation'>
-                        <div class='middle'>
-                            <span class='disable'>
-                                <svg class='icon icon-shirt'><use xlink:href='#icon-shirt'></use></svg>
-                            </span>
-                            <span class='disable'>
-                                <svg class='icon icon-hearts'><use xlink:href='#icon-hearts'></use></svg>
-                            </span>
-                        </div>
-                        <span class='active'>
-                            <svg class='icon icon-frog'><use xlink:href='#icon-frog'></use></svg>
-                        </span>
-                    </nav> #}
-                    <nav id='headerRight' class='header-right alone' role='navigation'>
-                        <span id='frogLink' class='active frog-link'>
-                            <svg id='iconFrog' class='icon icon-frog on'><use xlink:href='#icon-frog'></use></svg>
-                            <svg id='iconFrog2' class='icon icon-frog2'><use xlink:href='#icon-frog2'></use></svg>
-                        </span>
-                    </nav>
                 </div>
+            </header>
+
+            <main class='main' role='main'>
+                {% block content %}{% endblock %}
+            </main>
+
+            <footer role='banner'>
+            </footer>
+        </div>
+        <div class="load" id='load'>
+            <div class="inner-load">
+                <svg class='icon stereo'><use xlink:href='#icon-stereo'/></svg>
+                <svg class='icon super'><use xlink:href='#icon-super'/></svg>
             </div>
-        </header>
-
-        <main class='main' role='main'>
-            {% block content %}{% endblock %}
-        </main>
-
-        <footer role='banner'>
-        </footer>
+        </div>
+        <div class="first-overlay" id='firstO'></div>
+        
 
         {% block icons %}
             <svg style='position:absolute;width:0;height:0;overflow:hidden'>

@@ -25,17 +25,19 @@ module.exports = function(scene, isMobile){
     let orientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
 
     const initGyro = e => {
-        TweenMax.set(fly, {
-            top: '50%',
-            left: '50%'
-        });
-        TweenMax.to(fly, 0.3, {opacity: 1});
-        hasOrientation = true;
-        o = {
-            alpha: e.alpha,
-            beta: e.beta,
-            gamma: e.gamma
-        };
+        if(e.alpha !== -0 && e.beta !== 0 && e.gamma !== -0){
+            o = {
+                alpha: e.alpha,
+                beta: e.beta,
+                gamma: e.gamma
+            };
+            hasOrientation = true;        
+            TweenMax.set(fly, {
+                top: '50%',
+                left: '50%'
+            });
+            TweenMax.to(fly, 0.3, {opacity: 1});
+        }
     };
 
     const reinitFly = () => {
@@ -92,7 +94,7 @@ module.exports = function(scene, isMobile){
             };
         }
         
-        if (n.gamma > 75 || n.gamma < -75 || n.beta > 75 || n.beta < -75) {
+        if (n.gamma > 90 || n.gamma < -90 || n.beta > 90 || n.beta < -90) {
             TweenMax.to(layers, 0.2, {x: 0, y: 0, ease: Power2.easeInOut});
         }else{
             layers.each(function(){
@@ -111,6 +113,8 @@ module.exports = function(scene, isMobile){
         };        
         !hasOrientation ? initGyro(a) : parallax(a, bLayers);
         flyMove(a);
+        console.log(e);
+        
     };
     
 
@@ -123,6 +127,8 @@ module.exports = function(scene, isMobile){
     window.addEventListener("orientationchange", function(e) {
         clearTimeout(timeToWaitRotation);
         orientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
+        console.log('change');
+        
         timeToWaitRotation = setTimeout(function(){
             initGyro(a);
         }, 1000);

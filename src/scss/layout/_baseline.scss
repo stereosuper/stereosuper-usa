@@ -52,6 +52,9 @@
         pointer-events: none;
         transform: rotate(-2deg) scale(0.97);
         overflow: hidden;
+        .is-mobile &{
+            transform: rotate(-2deg) scale(1);
+        }
     }
     .content-rect{
         display: block;
@@ -106,6 +109,7 @@
     backface-visibility: hidden;
     transform: scaleY(0);
     transform-origin: 0 0;
+    z-index: -1;
 }
 .elem-anim{
     position: absolute;

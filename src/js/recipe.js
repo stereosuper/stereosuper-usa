@@ -17,7 +17,7 @@ module.exports = function(isMobile){
     const voila = $('#voila');
 
     let maxHeight = sheet2.height();
-
+    
     if (window.matchMedia("(max-width: 960px)").matches || isMobile) {
         $('.container-sheet>div').css('height', 'auto');
         sheets.removeClass('stuck').addClass('release');

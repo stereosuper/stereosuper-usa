@@ -7,7 +7,7 @@
     $secondary-dark: map-get($map, secondary-dark);
 
     .#{$theme}{
-        background: black;        
+        background: $primary;        
         &.on, .no-js &{
             background: $primary;
         }

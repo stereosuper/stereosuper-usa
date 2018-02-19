@@ -5,12 +5,14 @@
     left: 0;
     right: 0;
     z-index: -1;
-    > .icon{
+    background-color: black;
+    transform-origin: 100% 100%;
+    .icon{
         position: absolute;
         width: 100px;
         height: 100px;
-        top: calc(50% - 50px);
-        left: calc(50% - 50px); 
+        top: 0;
+        left: 0; 
     }
     .stereo{
         color: $blue;
@@ -22,6 +24,14 @@
         opacity: 0;
         animation: loading2 0.4s steps(1) infinite;
     }
+}
+
+.inner-load{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px); 
 }
 
 @keyframes loading {
