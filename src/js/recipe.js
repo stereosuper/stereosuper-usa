@@ -7,7 +7,7 @@ const throttle = require('./throttle.js');
 require('gsap');
 const tl = require('./etVoila');
 
-module.exports = function(isMobile){
+module.exports = function(isMobile, ns){
     const recipe = $('#recipe');
     const sheets = $('.container-sheet');
     const sheet1 = $('.container-sheet[data-sheet="1"]');
@@ -57,6 +57,7 @@ module.exports = function(isMobile){
 
     const scroller = () => {
         viewportTop = $(window).scrollTop();
+        
         if(elementTop - offsetTop <= viewportTop){
             if(!inRecipe){
                 inRecipe = true;

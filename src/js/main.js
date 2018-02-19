@@ -14,6 +14,7 @@ const imagesLoaded = require('imagesloaded');
 // provide jQuery argument
 imagesLoaded.makeJQueryPlugin( $ );
 
+
 $(function(){
 
     window.requestAnimFrame = require('./requestAnimFrame.js');
@@ -57,6 +58,7 @@ $(function(){
 
     const CommonView = Barba.BaseView.extend({ namespace: 'common',
         onEnterCompleted: function(){
+            console.log('complete');
             const frogLink = $(this.container).find('#frogLink');
             const condensed = frogLink.find('#iconFrog');
             const extended = frogLink.find('#iconFrog2');
@@ -65,7 +67,7 @@ $(function(){
             const bubble2 = $(this.container).find('#bubble2');
             const bubble3 = $(this.container).find('#bubble3');
 
-            recipe(isMobile.any);
+            recipe(isMobile.any, $(this.container).data('namespace'));
             frogJump(condensed, extended);
             animFrog(visuFrog, isMobile.any);
             etVoilaMobile($(this.container).find('#voila'));
@@ -73,14 +75,16 @@ $(function(){
             animBubble(bubble2, 6.1);
             animBubble(bubble3, 9.3);
             animRefs($(this.container).find('.reference'));
-            gyro($(this.container).find('#baseline, #contact'), isMobile.any);
-
+            gyro.init($(this.container).find('#baseline, #contact'), isMobile.any, $(this.container));
+            
+            
+            
             $(this.container).find('#contactLink').on('mouseenter', function(){
                 TweenMax.to($(this.container).find('#contactRect'), 0.6, {scale: 0.95, ease: Elastic.easeOut.config(1, 0.2)});
             }).on('mouseleave', function(){
                 TweenMax.to($(this.container).find('#contactRect'), 0.1, {scale: 1, ease: Power1.easeInOut});
             });
-        
+
             $(this.container).find('#toRecipe').on('click', function(e){
                 e.preventDefault();
                 TweenMax.to(window, 0.3, {scrollTo: '#recipe', offsetY:50});
@@ -95,6 +99,10 @@ $(function(){
             $(this.container).find('#contactLink').off();
             $(this.container).find('#toRecipe').off();
             $(this.container).find('#hashtag').off();
+            $(document).off('scroll');
+            $(window).off('resize');
+            $(window).off('orientationchange');
+            gyro.kill();
         }
     });
 
@@ -103,8 +111,6 @@ $(function(){
     const Cuisine = CommonView.extend({ namespace: 'cuisine',
         onEnterCompleted: function(){
             CommonView.onEnterCompleted.apply(this);
-            console.log('cuisineEnter');
-            
         }
     });
     Cuisine.init();
@@ -112,8 +118,6 @@ $(function(){
     const CuisineEn = CommonView.extend({ namespace: 'cooking',
         onEnterCompleted: function(){
             CommonView.onEnterCompleted.apply(this);
-            console.log('cookngEnter');
-            
         }
     });
     CuisineEn.init();
@@ -140,7 +144,7 @@ $(function(){
         requestAnimFrame(resizeHandler);
     }, 60));
 
-    $(window ).on('beforeunload', function(){
+    $(window).on('beforeunload', function(){
         $(window).scrollTop(0);
     });
 

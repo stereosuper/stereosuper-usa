@@ -1,9 +1,10 @@
 //import { TweenMax, Power2 } from 'gsap';
 
-const $ = require('jquery-slim');
+// const $ = require('jquery-slim');
 require('gsap');
 
 module.exports = function(frog){
+    if(!frog.length) return;
 
     const reinitFrog = () => {
         tlFrog.pause(0);
@@ -31,4 +32,4 @@ module.exports = function(frog){
     return tlFrog;
 
 
-}
+};
