@@ -31,6 +31,7 @@
     "ismobilejs": "^0.4.1",
     "jquery-slim": "^3.0.0",
     "path": "^0.12.7",
+    "quaternion": "^2.0.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "wp-cli": "0.0.5"
