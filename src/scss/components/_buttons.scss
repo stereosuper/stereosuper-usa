@@ -2,6 +2,9 @@
 .link{
     font-family: $elena;
     text-decoration: none;
+    &:hover, &:focus{
+        color: rgb(247, 247, 247);
+    }
 }
 .link-arrow{
     display: inline-block;

@@ -6,7 +6,7 @@
     font-size: 1.4rem;
     text-align: center;
     text-transform: uppercase;
-    z-index: 2;
+    z-index: 4;
     &.left{
         left: 35px;
         transform-origin: 0 50%;
@@ -45,8 +45,19 @@
         text-decoration: none;
     }
 }
+@media (max-width: $desktop-small){
+    .lateral{
+        font-size: 1.2rem;
+        &.left{
+            left: 25px;
+        }
+        &.right{
+            right: 25px;
+        }
+    }
+}
 
-@media (max-width: $container){
+@media (max-width: $tablet){
     .lateral{
         &.left{
             left: 15px;
@@ -54,10 +65,5 @@
         &.right{
             right: 15px;
         }
-    }
-}
-@media (max-width: $desktop-small){
-    .lateral{
-        font-size: 1.2rem;
     }
 }
