@@ -25,7 +25,7 @@ var reportError = function(error) {
 
 gulp.task('styles', function () {
     return gulp.src('src/scss/main.scss')
-        .pipe($.sourcemaps.init())
+        //.pipe($.sourcemaps.init())
         .pipe($.sass({
             precision: 6, outputStyle: 'compressed', sourceComments: false, indentWidth: 4,
         }))
@@ -43,7 +43,7 @@ gulp.task('styles', function () {
             'bb >= 10'
             ]
         }))
-        .pipe($.sourcemaps.write())
+        //.pipe($.sourcemaps.write())
         .pipe(gulp.dest('dest/css'))
         .pipe($.size({title: 'styles'}));
 });
@@ -76,9 +76,9 @@ gulp.task('js', function () {
         .bundle()
         .pipe(source('main.js'))
         .pipe(buffer())
-        .pipe($.sourcemaps.init({loadMaps: true}))
+        //.pipe($.sourcemaps.init({loadMaps: true}))
         .pipe($.uglify())
-        .pipe($.sourcemaps.write('./'))
+        //.pipe($.sourcemaps.write('./'))
         .pipe(gulp.dest('dest/js'))
         .pipe($.size({ title: 'js' }));
 });
