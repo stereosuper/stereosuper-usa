@@ -24,6 +24,9 @@
         opacity: 0;
         animation: loading2 0.4s steps(1) infinite;
     }
+    .no-js &{
+        display: none;
+    }
 }
 
 .inner-load{
