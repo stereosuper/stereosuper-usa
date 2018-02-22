@@ -75,6 +75,7 @@
         right: -115px;
         bottom: -50px;
         left: -95px;
+        transform-origin: center bottom 0px;
         transform: rotate(-2deg);
         .no-js &{
             display: none;
